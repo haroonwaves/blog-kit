@@ -16,11 +16,11 @@ const colorVariants = [
 	'bg-teal-100 dark:bg-teal-900/30 text-teal-500 dark:text-teal-300',
 ];
 
-// Simple hash function to get consistent color for each tag
+// djb2-style hash for consistent, well-distributed color per tag
 function getColorIndex(text: string): number {
-	let hash = 0;
+	let hash = 5381;
 	for (let i = 0; i < text.length; i++) {
-		hash = (hash << 5) - hash + text.charCodeAt(i);
+		hash = (hash * 33) ^ text.charCodeAt(i);
 		hash |= 0; // Convert to 32bit integer
 	}
 	return Math.abs(hash) % colorVariants.length;

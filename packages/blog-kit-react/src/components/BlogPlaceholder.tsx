@@ -5,7 +5,7 @@ export interface BlogPlaceholderProps {
 
 export function BlogPlaceholder({ count = 3, className = '' }: BlogPlaceholderProps) {
 	return (
-		<div className={`space-y-6 ${className}`}>
+		<div className={`${className}`}>
 			{Array.from({ length: count }).map((_, i) => (
 				<div
 					key={i}

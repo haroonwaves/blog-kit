@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
 import type { BlogMeta } from '../types';
+import { useDebounce } from './useDebounce';
 
 export function useBlogs(blogsMeta: BlogMeta[]) {
 	const [filteredBlogs, setFilteredBlogs] = useState(blogsMeta);
 	const [searchTerm, setSearchTerm] = useState('');
 	const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+
+	const debouncedSearchTerm = useDebounce(searchTerm, 500);
 
 	const getBlogCategories = (blog: BlogMeta): string[] => {
 		return blog.categories ?? [];
@@ -13,11 +16,11 @@ export function useBlogs(blogsMeta: BlogMeta[]) {
 	useEffect(() => {
 		let filtered = blogsMeta;
 
-		if (searchTerm) {
+		if (debouncedSearchTerm) {
 			filtered = filtered.filter(
 				(blog) =>
-					blog.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-					blog.description.toLowerCase().includes(searchTerm.toLowerCase())
+					blog.title.toLowerCase().includes(debouncedSearchTerm.toLowerCase()) ||
+					blog.description.toLowerCase().includes(debouncedSearchTerm.toLowerCase())
 			);
 		}
 
@@ -29,7 +32,7 @@ export function useBlogs(blogsMeta: BlogMeta[]) {
 		}
 
 		setFilteredBlogs(filtered);
-	}, [blogsMeta, searchTerm, selectedCategory]);
+	}, [blogsMeta, debouncedSearchTerm, selectedCategory]);
 
 	const categories = Array.from(new Set(blogsMeta.flatMap((blog) => getBlogCategories(blog))));
 

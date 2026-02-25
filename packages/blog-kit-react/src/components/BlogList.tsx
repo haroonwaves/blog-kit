@@ -27,7 +27,7 @@ export function BlogList({
 	}
 
 	return (
-		<div className={`${className}`}>
+		<div className={`flex flex-col gap-6 ${className}`}>
 			{metadata.map((meta) => (
 				<BlogCard
 					key={meta.slug}

@@ -27,7 +27,7 @@ export function BlogList({
 	}
 
 	return (
-		<div className={`space-y-6 ${className}`}>
+		<div className={`${className}`}>
 			{metadata.map((meta) => (
 				<BlogCard
 					key={meta.slug}

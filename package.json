@@ -1,6 +1,6 @@
 {
 	"name": "blog-kit",
-	"version": "1.2.7",
+	"version": "1.2.8",
 	"private": true,
 	"description": "Toolkit for building blog systems with markdown.",
 	"main": "index.js",

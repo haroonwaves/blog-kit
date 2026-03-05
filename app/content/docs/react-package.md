@@ -17,7 +17,7 @@ Render markdown content with syntax highlighting and beautiful styling:
 ```tsx
 import { PostRenderer } from '@haroonwaves/blog-kit-react';
 
-function PostPost({ content }) {
+function Post({ content }) {
 	return <PostRenderer content={content} metadata={metadata} />;
 }
 ```
@@ -30,7 +30,7 @@ You can override any default component by passing custom components through the 
 import { PostRenderer } from '@haroonwaves/blog-kit-react';
 import type { ComponentProps } from 'react';
 
-function PostPost({ content, metadata }) {
+function Post({ content, metadata }) {
 	// Custom component overrides
 	const customComponents = {
 		// Custom blockquote with a different style
@@ -58,7 +58,7 @@ function PostPost({ content, metadata }) {
 
 ### PostCard
 
-Display a single post post card:
+Display a single post card:
 
 ```tsx
 import { PostCard } from '@haroonwaves/blog-kit-react';
@@ -80,7 +80,7 @@ function PostCardExample({ postMeta }) {
 
 ### PostList
 
-Display a list of post posts:
+Display a list of posts:
 
 ```tsx
 import { PostList } from '@haroonwaves/blog-kit-react';
@@ -96,7 +96,7 @@ function PostListExample({ postsMeta }) {
 - `basePath` (string, optional): Base path for post links (default: '/post')
 - `renderLink` (function, optional): Custom link renderer
 - `className` (string, optional): Additional CSS classes
-- `emptyMessage` (string, optional): Message when no posts (default: 'No post posts found.')
+- `emptyMessage` (string, optional): Message when no posts (default: 'No posts found.')
 - `cardProps` (object, optional): Props to pass to each PostCard
 
 ### PostPlaceholder
@@ -118,7 +118,7 @@ function LoadingPosts() {
 
 ### usePosts Hook
 
-Filter and search through post posts:
+Filter and search through posts:
 
 ```tsx
 import { usePosts } from '@haroonwaves/blog-kit-react';
@@ -153,7 +153,7 @@ function PostSearch({ postsMeta }) {
 
 **Returns:**
 
-- `metadata` (PostMeta[]): Filtered post posts metadata
+- `metadata` (PostMeta[]): Filtered posts metadata
 - `searchTerm` (string): Current search term
 - `setSearchTerm` (function): Update search term
 - `selectedCategory` (string | null): Selected category filter
@@ -211,7 +211,7 @@ export default function PostListPage() {
 }
 ```
 
-**Post Post Page** (`app/post/[slug]/page.tsx`):
+**Post Page** (`app/post/[slug]/page.tsx`):
 
 ```tsx
 import { getAllPostsMeta, getPost } from '@haroonwaves/blog-kit-core';

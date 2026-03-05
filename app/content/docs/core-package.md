@@ -28,8 +28,8 @@ const config = {
 // Get all post metadata
 const postsMeta = getAllPostsMeta(config);
 
-// Get a specific post post
-const post = getPost('my-post-post', config);
+// Get a specific post
+const post = getPost('my-post', config);
 ```
 
 #### Client-Side
@@ -40,10 +40,10 @@ For client-side usage (when you have markdown content as strings):
 import { extractPostMeta, extractPost } from '@haroonwaves/blog-kit-core';
 
 // Extract metadata from markdown content
-const postMeta = extractPostMeta(markdownContent, 'my-post-post');
+const postMeta = extractPostMeta(markdownContent, 'my-post');
 
 // Extract full post data from markdown content
-const post = extractPost(markdownContent, 'my-post-post');
+const post = extractPost(markdownContent, 'my-post');
 ```
 
 ### Post File Format
@@ -52,7 +52,7 @@ Your markdown files should include frontmatter:
 
 ```markdown
 ---
-title: My Post Post
+title: My Post
 description: A brief description of the post
 date: 2024-01-15
 categories:
@@ -60,14 +60,14 @@ categories:
   - Web Development
 ---
 
-# My Post Post
+# My Post
 
 Your markdown content here...
 ```
 
 **Required frontmatter fields:**
 
-- `title` (string): The post post title
+- `title` (string): The post title
 - `description` (string): A brief description/summary
 - `date` (string): Publication date (ISO format recommended: YYYY-MM-DD)
 

@@ -31,7 +31,7 @@ export async function generateMetadata({
 	}
 
 	const baseKeywords = [
-		'post kit documentation',
+		'Blog Kit documentation',
 		'build a post',
 		'markdown post',
 		'post tutorial',

@@ -45,7 +45,7 @@ Returns the full post data including content for a specific slug. Requires Node.
 
 **Parameters:**
 
-- `slug` (string): The post post slug (filename without .md)
+- `slug` (string): The post slug (filename without .md)
 - `config.contentDirectory` (string): Path to your content directory
 - `config.postSubdirectory` (string, optional): Subdirectory for post files (defaults to 'post')
 
@@ -54,7 +54,7 @@ Returns the full post data including content for a specific slug. Requires Node.
 **Example:**
 
 ```typescript
-const post = getPost('my-post-post', {
+const post = getPost('my-post', {
 	contentDirectory: './content',
 });
 
@@ -74,14 +74,14 @@ Extracts post metadata from raw markdown content. Works in browser environments.
 **Parameters:**
 
 - `content` (string): Raw markdown content string
-- `slug` (string): Post post slug/identifier
+- `slug` (string): Post slug/identifier
 
 **Returns:** `PostMeta` object
 
 **Example:**
 
 ```typescript
-const postMeta = extractPostMeta(markdownContent, 'my-post-post');
+const postMeta = extractPostMeta(markdownContent, 'my-post');
 console.log(postMeta.title, postMeta.readingTime);
 ```
 
@@ -92,14 +92,14 @@ Extracts full post data from raw markdown content. Works in browser environments
 **Parameters:**
 
 - `content` (string): Raw markdown content string
-- `slug` (string): Post post slug/identifier
+- `slug` (string): Post slug/identifier
 
 **Returns:** `Post` object
 
 **Example:**
 
 ```typescript
-const post = extractPost(markdownContent, 'my-post-post');
+const post = extractPost(markdownContent, 'my-post');
 console.log(post.metadata.title);
 console.log(post.content); // markdown content
 ```
@@ -109,7 +109,7 @@ console.log(post.content); // markdown content
 #### Components
 
 - `PostRenderer` - Renders markdown content with syntax highlighting
-- `PostCard` - Single post post card component
+- `PostCard` - Single post card component
 - `PostList` - List of post cards
 - `PostPlaceholder` - Loading placeholder component
 

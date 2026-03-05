@@ -1,10 +1,10 @@
 import React from 'react';
-import type { BlogMeta } from '../types';
+import type { PostMeta } from '../types';
 import { Badge } from './Badge';
 
-export interface BlogCardProps {
-	metadata: BlogMeta;
-	basePath?: string; // e.g., '/blog'
+export interface PostCardProps {
+	metadata: PostMeta;
+	basePath?: string; // e.g., '/post'
 	renderLink?: (href: string, children: React.ReactNode) => React.ReactNode;
 	className?: string;
 	showCategory?: boolean;
@@ -12,15 +12,15 @@ export interface BlogCardProps {
 	showDate?: boolean;
 }
 
-export function BlogCard({
+export function PostCard({
 	metadata,
-	basePath = '/blog',
+	basePath = '/post',
 	renderLink,
 	className = '',
 	showCategory = true,
 	showReadingTime = true,
 	showDate = true,
-}: BlogCardProps) {
+}: PostCardProps) {
 	const href = `${basePath}/${metadata.slug}`;
 	const defaultLink = (href: string, children: React.ReactNode) => <a href={href}>{children}</a>;
 	const Link = renderLink || defaultLink;

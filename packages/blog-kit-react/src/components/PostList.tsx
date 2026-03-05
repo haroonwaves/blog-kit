@@ -1,23 +1,23 @@
-import { BlogCard, type BlogCardProps } from './BlogCard';
-import type { BlogMeta } from '../types';
+import { PostCard, type PostCardProps } from './PostCard';
+import type { PostMeta } from '../types';
 
-export interface BlogListProps {
-	metadata: BlogMeta[];
+export interface PostListProps {
+	metadata: PostMeta[];
 	basePath?: string;
-	renderLink?: BlogCardProps['renderLink'];
+	renderLink?: PostCardProps['renderLink'];
 	className?: string;
 	emptyMessage?: string;
-	cardProps?: Omit<BlogCardProps, 'metadata' | 'basePath' | 'renderLink'>;
+	cardProps?: Omit<PostCardProps, 'metadata' | 'basePath' | 'renderLink'>;
 }
 
-export function BlogList({
+export function PostList({
 	metadata,
-	basePath = '/blog',
+	basePath = '/post',
 	renderLink,
 	className = '',
-	emptyMessage = 'No blog posts found.',
+	emptyMessage = 'No posts found.',
 	cardProps,
-}: BlogListProps) {
+}: PostListProps) {
 	if (metadata.length === 0) {
 		return (
 			<div className={`text-center text-gray-500 dark:text-gray-400 py-12 ${className}`}>
@@ -29,7 +29,7 @@ export function BlogList({
 	return (
 		<div className={`flex flex-col gap-6 ${className}`}>
 			{metadata.map((meta) => (
-				<BlogCard
+				<PostCard
 					key={meta.slug}
 					metadata={meta}
 					basePath={basePath}

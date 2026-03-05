@@ -1,14 +1,14 @@
 ---
 title: Quick Start
 description:
-  Build your own blog in minutes with this step-by-step guide. Learn how to set up Blog Kit with
-  Next.js and start creating your markdown blog today.
+  Build your own post in minutes with this step-by-step guide. Learn how to set up Blog Kit with
+  Next.js and start creating your markdown post today.
 date: 2024-01-03
 ---
 
 ## Quick Start
 
-Get your blog up and running in minutes with Blog Kit. This guide shows you the fastest way to
+Get your post up and running in minutes with Blog Kit. This guide shows you the fastest way to
 integrate Blog Kit into your Next.js application using Static Site Generation (SSG) for optimal
 performance and SEO.
 
@@ -17,21 +17,21 @@ performance and SEO.
 The easiest way to get started is with Next.js using Static Site Generation (SSG):
 
 ```tsx
-// app/blog/page.tsx
-import { getAllBlogsMeta } from '@haroonwaves/blog-kit-core';
-import { BlogList } from '@haroonwaves/blog-kit-react';
+// app/post/page.tsx
+import { getAllPostsMeta } from '@haroonwaves/blog-kit-core';
+import { PostList } from '@haroonwaves/blog-kit-react';
 import Link from 'next/link';
 
-export default function BlogPage() {
-	const blogsMeta = getAllBlogsMeta({
+export default function PostPage() {
+	const postsMeta = getAllPostsMeta({
 		contentDirectory: process.cwd(),
-		blogSubdirectory: 'content/blog',
+		postSubdirectory: 'content/post',
 	});
 
 	return (
-		<BlogList
-			metadata={blogsMeta}
-			basePath="/blog"
+		<PostList
+			metadata={postsMeta}
+			basePath="/post"
 			renderLink={(href, children) => <Link href={href}>{children}</Link>}
 		/>
 	);
@@ -39,33 +39,33 @@ export default function BlogPage() {
 ```
 
 ```tsx
-// app/blog/[slug]/page.tsx
-import { getAllBlogsMeta, getBlog } from '@haroonwaves/blog-kit-core';
-import { BlogRenderer } from '@haroonwaves/blog-kit-react';
+// app/post/[slug]/page.tsx
+import { getAllPostsMeta, getPost } from '@haroonwaves/blog-kit-core';
+import { PostRenderer } from '@haroonwaves/blog-kit-react';
 import { notFound } from 'next/navigation';
 
 export function generateStaticParams() {
-	const blogsMeta = getAllBlogsMeta({
+	const postsMeta = getAllPostsMeta({
 		contentDirectory: process.cwd(),
-		blogSubdirectory: 'content/blog',
+		postSubdirectory: 'content/post',
 	});
-	return blogsMeta.map((meta) => ({ slug: meta.slug }));
+	return postsMeta.map((meta) => ({ slug: meta.slug }));
 }
 
-export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
 	const { slug } = await params;
 
-	const blog = getBlog(slug, {
+	const post = getPost(slug, {
 		contentDirectory: process.cwd(),
-		blogSubdirectory: 'content/blog',
+		postSubdirectory: 'content/post',
 	});
 
-	if (!blog) notFound();
+	if (!post) notFound();
 
 	return (
 		<article>
-			<h1>{blog.metadata.title}</h1>
-			<BlogRenderer content={blog.content} metadata={blog.metadata} />
+			<h1>{post.metadata.title}</h1>
+			<PostRenderer content={post.content} metadata={post.metadata} />
 		</article>
 	);
 }

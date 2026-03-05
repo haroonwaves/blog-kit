@@ -4,14 +4,14 @@ import remarkGfm from 'remark-gfm';
 import rehypePrismPlus from 'rehype-prism-plus';
 import rehypeRaw from 'rehype-raw';
 import rehypeSlugCustomId from 'rehype-slug-custom-id';
-import type { BlogMeta } from '../types';
+import type { PostMeta } from '../types';
 
 import '../prism.css';
 import { Badge } from './Badge';
 
-export interface BlogRendererProps {
+export interface PostRendererProps {
 	content: string;
-	metadata: BlogMeta;
+	metadata: PostMeta;
 	className?: string;
 	components?: Record<string, React.ComponentType<any>>;
 	showCategory?: boolean;
@@ -173,7 +173,7 @@ const defaultComponents = {
 	),
 };
 
-export function BlogRenderer({
+export function PostRenderer({
 	content,
 	metadata,
 	className = '',
@@ -181,7 +181,7 @@ export function BlogRenderer({
 	showCategory = true,
 	showReadingTime = true,
 	showDate = true,
-}: BlogRendererProps) {
+}: PostRendererProps) {
 	const mergedComponents = { ...defaultComponents, ...components };
 
 	return (

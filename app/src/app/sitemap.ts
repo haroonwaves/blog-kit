@@ -1,4 +1,4 @@
-import { getAllBlogsMeta } from '@haroonwaves/blog-kit-core';
+import { getAllBlogsMeta as getAllPostsMeta } from '@haroonwaves/blog-kit-core';
 import type { MetadataRoute } from 'next';
 
 // Required for static export
@@ -8,7 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 	const baseUrl = 'https://blog-kit.haroonwaves.com';
 
 	// Get all documentation pages
-	const docsMeta = getAllBlogsMeta({
+	const docsMeta = getAllPostsMeta({
 		contentDirectory: './content',
 		blogSubdirectory: 'docs',
 	});

@@ -3,33 +3,33 @@ import { BookOpen, Zap, Code2, Palette, ArrowRight, Github } from 'lucide-react'
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-	title: 'Build Your Own Blog with Markdown & TypeScript - Blog Kit',
+	title: 'Build Your Own Post with Markdown & TypeScript - Blog Kit',
 	description:
-		'Build your own blog in minutes with Blog Kit. A free, open-source toolkit for creating beautiful markdown-based blogs and documentation sites.',
+		'Build your own post in minutes with Blog Kit. A free, open-source toolkit for creating beautiful markdown-based posts and documentation sites.',
 	keywords: [
-		'how to build a blog',
-		'create your own blog',
-		'build blog from scratch',
-		'markdown blog tutorial',
-		'developer blog setup',
-		'personal blog platform',
-		'blog building tool',
-		'free blog builder',
-		'self-hosted blog',
-		'blog for developers',
+		'how to build a post',
+		'create your own post',
+		'build post from scratch',
+		'markdown post tutorial',
+		'developer post setup',
+		'personal post platform',
+		'post building tool',
+		'free post builder',
+		'self-hosted post',
+		'post for developers',
 	],
 	openGraph: {
-		title: 'Build Your Own Blog with Markdown & TypeScript - Blog Kit',
+		title: 'Build Your Own Post with Markdown & TypeScript - Blog Kit',
 		description:
-			'Create your own blog in minutes. Free, open-source toolkit for building beautiful markdown-based blogs with zero configuration.',
+			'Create your own post in minutes. Free, open-source toolkit for building beautiful markdown-based posts with zero configuration.',
 		type: 'website',
 		url: 'https://blog-kit.haroonwaves.com',
 	},
 	twitter: {
 		card: 'summary_large_image',
-		title: 'Build Your Own Blog with Markdown & TypeScript',
+		title: 'Build Your Own Post with Markdown & TypeScript',
 		description:
-			'Create your own blog in minutes. Free, open-source toolkit for building beautiful markdown-based blogs.',
+			'Create your own post in minutes. Free, open-source toolkit for building beautiful markdown-based posts.',
 	},
 	alternates: {
 		canonical: 'https://blog-kit.haroonwaves.com',
@@ -50,7 +50,7 @@ export default function HomePage() {
 			priceCurrency: 'USD',
 		},
 		description:
-			'A modern, TypeScript-first toolkit for building markdown-based blog systems with minimal configuration. Perfect for developers who want to build their own blog.',
+			'A modern, TypeScript-first toolkit for building markdown-based post systems with minimal configuration. Perfect for developers who want to build their own post.',
 		url: 'https://blog-kit.haroonwaves.com',
 		author: {
 			'@type': 'Person',
@@ -63,7 +63,7 @@ export default function HomePage() {
 			ratingCount: '1',
 		},
 		keywords:
-			'blog builder, markdown blog, TypeScript blog, React blog, Next.js blog, build your own blog, create blog, developer blog',
+			'post builder, markdown post, TypeScript post, React post, Next.js post, build your own post, create post, developer post',
 	};
 
 	return (
@@ -94,13 +94,13 @@ export default function HomePage() {
 						{/* Heading */}
 						<h1 className="mb-6 text-5xl font-bold tracking-tight md:text-7xl animate-fade-in-up delay-100">
 							<span className="bg-linear-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
-								Build Your Own Blog
+								Build Your Own Post
 							</span>
 						</h1>
 
 						{/* Subheading */}
 						<p className="mb-12 text-xl text-muted-foreground md:text-2xl max-w-3xl mx-auto animate-fade-in-up delay-200">
-							A modern, TypeScript-first toolkit for building markdown-based blog systems with
+							A modern, TypeScript-first toolkit for building markdown-based post systems with
 							minimal configuration.
 						</p>
 
@@ -132,16 +132,16 @@ export default function HomePage() {
 						<h2 className="mb-4 text-center text-3xl font-bold md:text-4xl">Perfect For</h2>
 						<p className="mb-12 text-center text-lg text-muted-foreground max-w-2xl mx-auto">
 							Whether you&apos;re a developer, writer, or content creator, Blog Kit gives you the
-							tools to build your own blog exactly how you want it
+							tools to build your own post exactly how you want it
 						</p>
 
 						<div className="grid gap-6 md:grid-cols-3">
 							{/* Use Case 1 */}
 							<div className="group relative overflow-hidden rounded-2xl border border-border bg-card p-8 transition-all hover:shadow-lg hover:scale-105">
 								<div className="mb-4 text-4xl">📝</div>
-								<h3 className="mb-3 text-xl font-semibold">Personal Blogs</h3>
+								<h3 className="mb-3 text-xl font-semibold">Personal Posts</h3>
 								<p className="text-muted-foreground">
-									Build your own personal blog to share your thoughts, tutorials, and experiences
+									Build your own personal post to share your thoughts, tutorials, and experiences
 									with a beautiful, fast platform that&apos;s easy to maintain.
 								</p>
 							</div>
@@ -173,10 +173,10 @@ export default function HomePage() {
 				<section className="px-6 py-16 md:py-24">
 					<div className="mx-auto max-w-6xl">
 						<h2 className="mb-4 text-center text-3xl font-bold md:text-4xl">
-							Why Choose Blog Kit to Build Your Blog?
+							Why Choose Blog Kit to Build Your Post?
 						</h2>
 						<p className="mb-12 text-center text-lg text-muted-foreground max-w-2xl mx-auto">
-							Skip the complexity of markdown parsing, syntax highlighting, and UI components. Blog
+							Skip the complexity of markdown parsing, syntax highlighting, and UI components. Post
 							Kit handles it all so you can focus on creating content.
 						</p>
 
@@ -190,7 +190,7 @@ export default function HomePage() {
 									</div>
 									<h3 className="mb-3 text-xl font-semibold">Zero Configuration</h3>
 									<p className="text-muted-foreground">
-										Works out of the box with sensible defaults. Start building your blog
+										Works out of the box with sensible defaults. Start building your post
 										immediately without complex setup or configuration.
 									</p>
 								</div>
@@ -206,7 +206,7 @@ export default function HomePage() {
 									<h3 className="mb-3 text-xl font-semibold">TypeScript First</h3>
 									<p className="text-muted-foreground">
 										Full type safety and IntelliSense support for a superior developer experience
-										when building your blog.
+										when building your post.
 									</p>
 								</div>
 							</div>
@@ -221,7 +221,7 @@ export default function HomePage() {
 									<h3 className="mb-3 text-xl font-semibold">Production Ready</h3>
 									<p className="text-muted-foreground">
 										Battle-tested components with dark mode support and polished user experience.
-										Your blog will look professional from day one.
+										Your post will look professional from day one.
 									</p>
 								</div>
 							</div>
@@ -233,9 +233,9 @@ export default function HomePage() {
 				<section className="px-6 py-16 md:py-24">
 					<div className="mx-auto max-w-4xl text-center">
 						<div className="rounded-3xl border border-border bg-linear-to-br from-card to-muted/20 p-12 shadow-xl">
-							<h2 className="mb-4 text-3xl font-bold md:text-4xl">Ready to Build Your Own Blog?</h2>
+							<h2 className="mb-4 text-3xl font-bold md:text-4xl">Ready to Build Your Own Post?</h2>
 							<p className="mb-8 text-lg text-muted-foreground">
-								Explore the documentation and start building your blog or documentation site today.
+								Explore the documentation and start building your post or documentation site today.
 								It&apos;s free, open-source, and takes just minutes to get started.
 							</p>
 							<Link

@@ -1,11 +1,11 @@
 # Blog Kit
 
-A powerful toolkit for building blog systems with markdown. Consists of two packages: a core library
-for parsing markdown blog files and a React component library for rendering blog UIs.
+A powerful toolkit for building post systems with markdown. Consists of two packages: a core library
+for parsing markdown post files and a React component library for rendering post UIs.
 
 ## Documentation
 
-[blog kit](https://blog-kit.haroonwaves.com) - A full documentation of Blog Kit built with Blog Kit.
+[Blog Kit](https://blog-kit.haroonwaves.com) - A full documentation of Blog Kit built with Blog Kit.
 
 ## Development
 

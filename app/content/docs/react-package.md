@@ -1,24 +1,24 @@
 ---
 title: Blog Kit React Package
-description: Blog Kit's React components and hooks for rendering blogs and documentation sites.
+description: Blog Kit's React components and hooks for rendering posts and documentation sites.
 date: 2024-01-05
 ---
 
 ## React Package
 
 The `@haroonwaves/blog-kit-react` package offers a collection of production-ready React components
-and hooks for building beautiful blog interfaces. From markdown rendering with syntax highlighting
+and hooks for building beautiful post interfaces. From markdown rendering with syntax highlighting
 to search functionality, these components are designed to work seamlessly with any React framework.
 
-### BlogRenderer
+### PostRenderer
 
 Render markdown content with syntax highlighting and beautiful styling:
 
 ```tsx
-import { BlogRenderer } from '@haroonwaves/blog-kit-react';
+import { PostRenderer } from '@haroonwaves/blog-kit-react';
 
-function BlogPost({ content }) {
-	return <BlogRenderer content={content} metadata={metadata} />;
+function PostPost({ content }) {
+	return <PostRenderer content={content} metadata={metadata} />;
 }
 ```
 
@@ -27,10 +27,10 @@ function BlogPost({ content }) {
 You can override any default component by passing custom components through the `components` prop:
 
 ```tsx
-import { BlogRenderer } from '@haroonwaves/blog-kit-react';
+import { PostRenderer } from '@haroonwaves/blog-kit-react';
 import type { ComponentProps } from 'react';
 
-function BlogPost({ content, metadata }) {
+function PostPost({ content, metadata }) {
 	// Custom component overrides
 	const customComponents = {
 		// Custom blockquote with a different style
@@ -42,72 +42,72 @@ function BlogPost({ content, metadata }) {
 		),
 	};
 
-	return <BlogRenderer content={content} metadata={metadata} components={customComponents} />;
+	return <PostRenderer content={content} metadata={metadata} components={customComponents} />;
 }
 ```
 
 **Props:**
 
-- `content` (string, required): Blog content to render
-- `metadata` (BlogMeta, required): Blog meta info to render
+- `content` (string, required): Post content to render
+- `metadata` (PostMeta, required): Post meta info to render
 - `className` (string, optional): Additional CSS classes
 - `components` (object, optional): Custom component overrides
 - `showCategory` (boolean, optional): Show category badge (default: true)
 - `showReadingTime` (boolean, optional): Show reading time (default: true)
 - `showDate` (boolean, optional): Show publication date (default: true)
 
-### BlogCard
+### PostCard
 
-Display a single blog post card:
+Display a single post post card:
 
 ```tsx
-import { BlogCard } from '@haroonwaves/blog-kit-react';
+import { PostCard } from '@haroonwaves/blog-kit-react';
 
-function BlogCardExample({ blogMeta }) {
-	return <BlogCard metadata={blogMeta} basePath="/blog" />;
+function PostCardExample({ postMeta }) {
+	return <PostCard metadata={postMeta} basePath="/post" />;
 }
 ```
 
 **Props:**
 
-- `metadata` (BlogMeta, required): Blog metadata object
-- `basePath` (string, optional): Base path for blog links (default: '/blog')
+- `metadata` (PostMeta, required): Post metadata object
+- `basePath` (string, optional): Base path for post links (default: '/post')
 - `renderLink` (function, optional): Custom link renderer (useful for Next.js Link)
 - `className` (string, optional): Additional CSS classes
 - `showCategory` (boolean, optional): Show category badge (default: true)
 - `showReadingTime` (boolean, optional): Show reading time (default: true)
 - `showDate` (boolean, optional): Show publication date (default: true)
 
-### BlogList
+### PostList
 
-Display a list of blog posts:
+Display a list of post posts:
 
 ```tsx
-import { BlogList } from '@haroonwaves/blog-kit-react';
+import { PostList } from '@haroonwaves/blog-kit-react';
 
-function BlogListExample({ blogsMeta }) {
-	return <BlogList metadata={blogsMeta} basePath="/blog" emptyMessage="No posts found." />;
+function PostListExample({ postsMeta }) {
+	return <PostList metadata={postsMeta} basePath="/post" emptyMessage="No posts found." />;
 }
 ```
 
 **Props:**
 
-- `metadata` (BlogMeta[], required): Array of blog metadata
-- `basePath` (string, optional): Base path for blog links (default: '/blog')
+- `metadata` (PostMeta[], required): Array of post metadata
+- `basePath` (string, optional): Base path for post links (default: '/post')
 - `renderLink` (function, optional): Custom link renderer
 - `className` (string, optional): Additional CSS classes
-- `emptyMessage` (string, optional): Message when no blogs (default: 'No blog posts found.')
-- `cardProps` (object, optional): Props to pass to each BlogCard
+- `emptyMessage` (string, optional): Message when no posts (default: 'No post posts found.')
+- `cardProps` (object, optional): Props to pass to each PostCard
 
-### BlogPlaceholder
+### PostPlaceholder
 
-Show loading placeholders while blogs are loading:
+Show loading placeholders while posts are loading:
 
 ```tsx
-import { BlogPlaceholder } from '@haroonwaves/blog-kit-react';
+import { PostPlaceholder } from '@haroonwaves/blog-kit-react';
 
-function LoadingBlogs() {
-	return <BlogPlaceholder count={3} />;
+function LoadingPosts() {
+	return <PostPlaceholder count={3} />;
 }
 ```
 
@@ -116,23 +116,23 @@ function LoadingBlogs() {
 - `count` (number, optional): Number of placeholder cards (default: 3)
 - `className` (string, optional): Additional CSS classes
 
-### useBlogs Hook
+### usePosts Hook
 
-Filter and search through blog posts:
+Filter and search through post posts:
 
 ```tsx
-import { useBlogs } from '@haroonwaves/blog-kit-react';
+import { usePosts } from '@haroonwaves/blog-kit-react';
 
-function BlogSearch({ blogsMeta }) {
+function PostSearch({ postsMeta }) {
 	const { metadata, searchTerm, setSearchTerm, selectedCategory, setSelectedCategory, categories } =
-		useBlogs(blogsMeta);
+		usePosts(postsMeta);
 
 	return (
 		<div>
 			<input
 				value={searchTerm}
 				onChange={(e) => setSearchTerm(e.target.value)}
-				placeholder="Search blogs..."
+				placeholder="Search posts..."
 			/>
 			<select
 				value={selectedCategory || ''}
@@ -145,7 +145,7 @@ function BlogSearch({ blogsMeta }) {
 					</option>
 				))}
 			</select>
-			<BlogList metadata={metadata} />
+			<PostList metadata={metadata} />
 		</div>
 	);
 }
@@ -153,12 +153,12 @@ function BlogSearch({ blogsMeta }) {
 
 **Returns:**
 
-- `metadata` (BlogMeta[]): Filtered blog posts metadata
+- `metadata` (PostMeta[]): Filtered post posts metadata
 - `searchTerm` (string): Current search term
 - `setSearchTerm` (function): Update search term
 - `selectedCategory` (string | null): Selected category filter
 - `setSelectedCategory` (function): Update category filter
-- `categories` (string[]): Available categories from blogs
+- `categories` (string[]): Available categories from posts
 
 ### Next.js Integration
 
@@ -166,13 +166,13 @@ For Next.js projects, use a custom link renderer:
 
 ```tsx
 import Link from 'next/link';
-import { BlogCard } from '@haroonwaves/blog-kit-react';
+import { PostCard } from '@haroonwaves/blog-kit-react';
 
-function NextBlogCard({ blog }) {
+function NextPostCard({ post }) {
 	return (
-		<BlogCard
-			blog={blog}
-			basePath="/blog"
+		<PostCard
+			post={post}
+			basePath="/post"
 			renderLink={(href, children) => <Link href={href}>{children}</Link>}
 		/>
 	);
@@ -183,26 +183,26 @@ function NextBlogCard({ blog }) {
 
 For Next.js with static site generation, use server components and `generateStaticParams`:
 
-**Blog List Page** (`app/blog/page.tsx`):
+**Post List Page** (`app/post/page.tsx`):
 
 ```tsx
-import { getAllBlogsMeta } from '@haroonwaves/blog-kit-core';
-import { BlogList } from '@haroonwaves/blog-kit-react';
+import { getAllPostsMeta } from '@haroonwaves/blog-kit-core';
+import { PostList } from '@haroonwaves/blog-kit-react';
 import Link from 'next/link';
 
-export default function BlogListPage() {
-	const blogsMeta = getAllBlogsMeta({
+export default function PostListPage() {
+	const postsMeta = getAllPostsMeta({
 		contentDirectory: process.cwd(),
-		blogSubdirectory: 'content/blog',
+		postSubdirectory: 'content/post',
 	});
 
 	return (
 		<div className="min-h-screen bg-gray-50">
 			<div className="max-w-7xl mx-auto px-4 py-12">
-				<h1 className="text-4xl font-bold mb-4">Blogs</h1>
-				<BlogList
-					metadata={blogsMeta}
-					basePath="/blog"
+				<h1 className="text-4xl font-bold mb-4">Posts</h1>
+				<PostList
+					metadata={postsMeta}
+					basePath="/post"
 					renderLink={(href, children) => <Link href={href}>{children}</Link>}
 				/>
 			</div>
@@ -211,23 +211,23 @@ export default function BlogListPage() {
 }
 ```
 
-**Blog Post Page** (`app/blog/[slug]/page.tsx`):
+**Post Post Page** (`app/post/[slug]/page.tsx`):
 
 ```tsx
-import { getAllBlogsMeta, getBlog } from '@haroonwaves/blog-kit-core';
-import { BlogRenderer } from '@haroonwaves/blog-kit-react';
+import { getAllPostsMeta, getPost } from '@haroonwaves/blog-kit-core';
+import { PostRenderer } from '@haroonwaves/blog-kit-react';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 
-const blogConfig = {
+const postConfig = {
 	contentDirectory: process.cwd(),
-	blogSubdirectory: 'content/blog',
+	postSubdirectory: 'content/post',
 };
 
 export function generateStaticParams() {
-	const blogsMeta = getAllBlogsMeta(blogConfig);
-	return blogsMeta.map((meta) => ({
+	const postsMeta = getAllPostsMeta(postConfig);
+	return postsMeta.map((meta) => ({
 		slug: meta.slug,
 	}));
 }
@@ -239,38 +239,38 @@ export async function generateMetadata({
 }): Promise<Metadata> {
 	const { slug } = await params;
 
-	const blog = getBlog(slug, blogConfig);
+	const post = getPost(slug, postConfig);
 
-	if (!blog) {
+	if (!post) {
 		return {
-			title: 'Blog Post Not Found',
+			title: 'Post Not Found',
 		};
 	}
 
 	return {
-		title: `${blog.metadata.title} | Blog Kit`,
-		description: blog.metadata.description,
+		title: `${post.metadata.title} | Blog Kit`,
+		description: post.metadata.description,
 		openGraph: {
-			title: blog.metadata.title,
-			description: blog.metadata.description,
+			title: post.metadata.title,
+			description: post.metadata.description,
 			type: 'article',
-			publishedTime: blog.metadata.date,
+			publishedTime: post.metadata.date,
 		},
 	};
 }
 
-export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
 	const { slug } = await params;
 
-	const blog = getBlog(slug, blogConfig);
+	const post = getPost(slug, postConfig);
 
-	if (!blog) notFound();
+	if (!post) notFound();
 
-	const { metadata, content } = blog;
+	const { metadata, content } = post;
 
 	return (
 		<article>
-			<BlogRenderer content={content} metadata={metadata} />
+			<PostRenderer content={content} metadata={metadata} />
 		</article>
 	);
 }
@@ -281,30 +281,30 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 For server-side rendering, use the same functions but without `generateStaticParams`:
 
 ```tsx
-// app/blog/[slug]/page.tsx
-import { getBlog } from '@haroonwaves/blog-kit-core';
-import { BlogRenderer } from '@haroonwaves/blog-kit-react';
+// app/post/[slug]/page.tsx
+import { getPost } from '@haroonwaves/blog-kit-core';
+import { PostRenderer } from '@haroonwaves/blog-kit-react';
 import { notFound } from 'next/navigation';
 
-export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
 	const { slug } = await params;
 
-	const blog = getBlog(slug, {
+	const post = getPost(slug, {
 		contentDirectory: process.cwd(),
-		blogSubdirectory: 'content/blog',
+		postSubdirectory: 'content/post',
 	});
 
-	if (!blog) notFound();
+	if (!post) notFound();
 
 	return (
 		<article>
-			<BlogRenderer content={blog.content} metadata={blog.metadata} />
+			<PostRenderer content={post.content} metadata={post.metadata} />
 		</article>
 	);
 }
 ```
 
-**Note:** SSG is recommended for blogs as it pre-renders pages at build time for better performance.
+**Note:** SSG is recommended for posts as it pre-renders pages at build time for better performance.
 
 ### Pure React Example (Client-Side)
 
@@ -313,30 +313,30 @@ markdown content fetched from an API or imported:
 
 ```tsx
 import { useState, useEffect } from 'react';
-import { extractBlogMeta, extractBlog, type BlogMeta, type Blog } from '@haroonwaves/blog-kit-core';
-import { BlogRenderer, BlogList, useBlogs } from '@haroonwaves/blog-kit-react';
+import { extractPostMeta, extractPost, type PostMeta, type Post } from '@haroonwaves/blog-kit-core';
+import { PostRenderer, PostList, usePosts } from '@haroonwaves/blog-kit-react';
 
 // Example: Fetch markdown content from an API
-async function fetchBlogContent(slug: string): Promise<string> {
-	const response = await fetch(`/api/blogs/${slug}`);
+async function fetchPostContent(slug: string): Promise<string> {
+	const response = await fetch(`/api/posts/${slug}`);
 	return response.text();
 }
 
-async function fetchAllBlogs(): Promise<BlogMeta[]> {
-	const response = await fetch('/api/blogs');
-	const blogs = await response.json();
+async function fetchAllPosts(): Promise<PostMeta[]> {
+	const response = await fetch('/api/posts');
+	const posts = await response.json();
 	// If you receive raw markdown, extract metadata
-	return blogs.map((blog: { content: string; slug: string }) =>
-		extractBlogMeta(blog.content, blog.slug)
+	return posts.map((post: { content: string; slug: string }) =>
+		extractPostMeta(post.content, post.slug)
 	);
 }
 
-function BlogPage() {
-	const [blogsMeta, setBlogsMeta] = useState<BlogMeta[]>([]);
-	const { metadata, searchTerm, setSearchTerm } = useBlogs(blogsMeta);
+function PostPage() {
+	const [postsMeta, setPostsMeta] = useState<PostMeta[]>([]);
+	const { metadata, searchTerm, setSearchTerm } = usePosts(postsMeta);
 
 	useEffect(() => {
-		fetchAllBlogs().then(setBlogsMeta);
+		fetchAllPosts().then(setPostsMeta);
 	}, []);
 
 	return (
@@ -346,29 +346,29 @@ function BlogPage() {
 				onChange={(e) => setSearchTerm(e.target.value)}
 				placeholder="Search..."
 			/>
-			<BlogList metadata={metadata} basePath="/blog" />
+			<PostList metadata={metadata} basePath="/post" />
 		</div>
 	);
 }
 
-function BlogPostPage({ slug }: { slug: string }) {
-	const [blog, setBlog] = useState<Blog | null>(null);
+function PostPage({ slug }: { slug: string }) {
+	const [post, setPost] = useState<Post | null>(null);
 	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
-		fetchBlogContent(slug).then((content) => {
-			const blogData = extractBlog(content, slug);
-			setBlog(blogData);
+		fetchPostContent(slug).then((content) => {
+			const postData = extractPost(content, slug);
+			setPost(postData);
 			setLoading(false);
 		});
 	}, [slug]);
 
 	if (loading) return <div>Loading...</div>;
-	if (!blog) return <div>Blog not found</div>;
+	if (!post) return <div>Post not found</div>;
 
 	return (
 		<article>
-			<BlogRenderer content={blog.content} metadata={blog.metadata} />
+			<PostRenderer content={post.content} metadata={post.metadata} />
 		</article>
 	);
 }

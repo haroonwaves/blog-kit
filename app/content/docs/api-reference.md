@@ -6,7 +6,7 @@ date: 2024-01-06
 
 ## API Reference
 
-Complete reference documentation for all functions, components, hooks, and types available in Blog
+Complete reference documentation for all functions, components, hooks, and types available in Post
 Kit. This guide covers both the core package utilities and React components with detailed
 parameters, return values, and usage examples.
 
@@ -14,108 +14,108 @@ parameters, return values, and usage examples.
 
 #### Server-Side Functions (SSR/SSG only)
 
-##### `getAllBlogsMeta(config: BlogConfig): BlogMeta[]`
+##### `getAllPostsMeta(config: PostConfig): PostMeta[]`
 
-Returns an array of all blog metadata sorted by date (newest first). Requires Node.js `fs` module.
+Returns an array of all post metadata sorted by date (newest first). Requires Node.js `fs` module.
 
 **Parameters:**
 
 - `config.contentDirectory` (string): Path to your content directory
-- `config.blogSubdirectory` (string, optional): Subdirectory for blog files (defaults to 'blog')
+- `config.postSubdirectory` (string, optional): Subdirectory for post files (defaults to 'post')
 
-**Returns:** Array of `BlogMeta` objects
+**Returns:** Array of `PostMeta` objects
 
 **Example:**
 
 ```typescript
-const blogsMeta = getAllBlogsMeta({
+const postsMeta = getAllPostsMeta({
 	contentDirectory: './content',
-	blogSubdirectory: 'posts', // optional
+	postSubdirectory: 'posts', // optional
 });
 
-// blogs is an array of BlogMeta objects
-blogsMeta.forEach((meta) => {
+// posts is an array of PostMeta objects
+postsMeta.forEach((meta) => {
 	console.log(meta.title, meta.slug, meta.readingTime);
 });
 ```
 
-##### `getBlog(slug: string, config: BlogConfig): Blog | null`
+##### `getPost(slug: string, config: PostConfig): Post | null`
 
-Returns the full blog data including content for a specific slug. Requires Node.js `fs` module.
+Returns the full post data including content for a specific slug. Requires Node.js `fs` module.
 
 **Parameters:**
 
-- `slug` (string): The blog post slug (filename without .md)
+- `slug` (string): The post post slug (filename without .md)
 - `config.contentDirectory` (string): Path to your content directory
-- `config.blogSubdirectory` (string, optional): Subdirectory for blog files (defaults to 'blog')
+- `config.postSubdirectory` (string, optional): Subdirectory for post files (defaults to 'post')
 
-**Returns:** `Blog` object or `null` if not found
+**Returns:** `Post` object or `null` if not found
 
 **Example:**
 
 ```typescript
-const blog = getBlog('my-blog-post', {
+const post = getPost('my-post-post', {
 	contentDirectory: './content',
 });
 
-if (blog) {
-	console.log(blog.metadata.title);
-	console.log(blog.content); // blog markdown content
-	console.log(blog.readingTime);
+if (post) {
+	console.log(post.metadata.title);
+	console.log(post.content); // post markdown content
+	console.log(post.readingTime);
 }
 ```
 
 #### Client-Side Functions (Browser compatible)
 
-##### `extractBlogMeta(content: string, slug: string): BlogMeta`
+##### `extractPostMeta(content: string, slug: string): PostMeta`
 
-Extracts blog metadata from raw markdown content. Works in browser environments.
+Extracts post metadata from raw markdown content. Works in browser environments.
 
 **Parameters:**
 
 - `content` (string): Raw markdown content string
-- `slug` (string): Blog post slug/identifier
+- `slug` (string): Post post slug/identifier
 
-**Returns:** `BlogMeta` object
+**Returns:** `PostMeta` object
 
 **Example:**
 
 ```typescript
-const blogMeta = extractBlogMeta(markdownContent, 'my-blog-post');
-console.log(blogMeta.title, blogMeta.readingTime);
+const postMeta = extractPostMeta(markdownContent, 'my-post-post');
+console.log(postMeta.title, postMeta.readingTime);
 ```
 
-##### `extractBlog(content: string, slug: string): Blog`
+##### `extractPost(content: string, slug: string): Post`
 
-Extracts full blog data from raw markdown content. Works in browser environments.
+Extracts full post data from raw markdown content. Works in browser environments.
 
 **Parameters:**
 
 - `content` (string): Raw markdown content string
-- `slug` (string): Blog post slug/identifier
+- `slug` (string): Post post slug/identifier
 
-**Returns:** `Blog` object
+**Returns:** `Post` object
 
 **Example:**
 
 ```typescript
-const blog = extractBlog(markdownContent, 'my-blog-post');
-console.log(blog.metadata.title);
-console.log(blog.content); // markdown content
+const post = extractPost(markdownContent, 'my-post-post');
+console.log(post.metadata.title);
+console.log(post.content); // markdown content
 ```
 
 ### React Package
 
 #### Components
 
-- `BlogRenderer` - Renders markdown content with syntax highlighting
-- `BlogCard` - Single blog post card component
-- `BlogList` - List of blog cards
-- `BlogPlaceholder` - Loading placeholder component
+- `PostRenderer` - Renders markdown content with syntax highlighting
+- `PostCard` - Single post post card component
+- `PostList` - List of post cards
+- `PostPlaceholder` - Loading placeholder component
 
 #### Hooks
 
-- `useBlogs(blogs: BlogMeta[])` - Provides search and filter functionality
+- `usePosts(posts: PostMeta[])` - Provides search and filter functionality
 
 See the [React Package](/docs/react-package) section for detailed examples of each component and
 hook.
@@ -123,7 +123,7 @@ hook.
 ### Types
 
 ```typescript
-interface BlogMeta {
+interface PostMeta {
 	title: string;
 	description: string;
 	date: string;
@@ -132,14 +132,14 @@ interface BlogMeta {
 	readingTime: string;
 }
 
-interface Blog {
-	metadata: BlogMeta;
+interface Post {
+	metadata: PostMeta;
 	content: string;
 	readingTime: string;
 }
 
-interface BlogConfig {
+interface PostConfig {
 	contentDirectory: string;
-	blogSubdirectory?: string;
+	postSubdirectory?: string;
 }
 ```

@@ -1,14 +1,14 @@
-import { getAllBlogsMeta, getBlog } from '@haroonwaves/blog-kit-core';
-import { BlogRenderer } from '@haroonwaves/blog-kit-react';
+import { getAllBlogsMeta as getAllPostsMeta, getBlog as getPost } from '@haroonwaves/blog-kit-core';
+import { BlogRenderer as PostRenderer } from '@haroonwaves/blog-kit-react';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 export function generateStaticParams() {
-	const blogsMeta = getAllBlogsMeta({
+	const postsMeta = getAllPostsMeta({
 		contentDirectory: './content',
 		blogSubdirectory: 'docs',
 	});
-	return blogsMeta.map((meta) => ({ slug: meta.slug }));
+	return postsMeta.map((meta) => ({ slug: meta.slug }));
 }
 
 export async function generateMetadata({
@@ -18,12 +18,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
 	const { slug } = await params;
 
-	const blog = getBlog(slug, {
+	const post = getPost(slug, {
 		contentDirectory: './content',
 		blogSubdirectory: 'docs',
 	});
 
-	if (!blog) {
+	if (!post) {
 		return {
 			title: 'Documentation Not Found',
 			description: 'The requested documentation page could not be found.',
@@ -31,37 +31,37 @@ export async function generateMetadata({
 	}
 
 	const baseKeywords = [
-		'blog kit documentation',
-		'build a blog',
-		'markdown blog',
-		'blog tutorial',
-		'create blog',
-		'blog framework',
-		'TypeScript blog',
+		'post kit documentation',
+		'build a post',
+		'markdown post',
+		'post tutorial',
+		'create post',
+		'post framework',
+		'TypeScript post',
 	];
 
 	return {
-		title: `${blog.metadata.title} - Blog Kit Documentation`,
+		title: `${post.metadata.title} - Blog Kit Documentation`,
 		description:
-			blog.metadata.description ||
-			`Learn how to ${blog.metadata.title.toLowerCase()} with Blog Kit. Complete guide for building your own blog with markdown and TypeScript.`,
-		keywords: [...baseKeywords, blog.metadata.title.toLowerCase()],
+			post.metadata.description ||
+			`Learn how to ${post.metadata.title.toLowerCase()} with Blog Kit. Complete guide for building your own post with markdown and TypeScript.`,
+		keywords: [...baseKeywords, post.metadata.title.toLowerCase()],
 		openGraph: {
-			title: `${blog.metadata.title} - Blog Kit Documentation`,
+			title: `${post.metadata.title} - Blog Kit Documentation`,
 			description:
-				blog.metadata.description ||
-				`Learn how to ${blog.metadata.title.toLowerCase()} with Blog Kit.`,
+				post.metadata.description ||
+				`Learn how to ${post.metadata.title.toLowerCase()} with Blog Kit.`,
 			type: 'article',
-			publishedTime: blog.metadata.date,
+			publishedTime: post.metadata.date,
 			url: `https://blog-kit.haroonwaves.com/docs/${slug}`,
 			siteName: 'Blog Kit',
 		},
 		twitter: {
 			card: 'summary',
-			title: `${blog.metadata.title} - Blog Kit`,
+			title: `${post.metadata.title} - Blog Kit`,
 			description:
-				blog.metadata.description ||
-				`Learn how to ${blog.metadata.title.toLowerCase()} with Blog Kit.`,
+				post.metadata.description ||
+				`Learn how to ${post.metadata.title.toLowerCase()} with Blog Kit.`,
 		},
 		alternates: {
 			canonical: `https://blog-kit.haroonwaves.com/docs/${slug}`,
@@ -69,21 +69,21 @@ export async function generateMetadata({
 	};
 }
 
-export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
 	const { slug } = await params;
 
-	const blog = getBlog(slug, {
+	const post = getPost(slug, {
 		contentDirectory: './content',
 		blogSubdirectory: 'docs',
 	});
 
-	if (!blog) notFound();
+	if (!post) notFound();
 
 	return (
 		<article className="space-y-8">
-			<BlogRenderer
-				content={blog.content}
-				metadata={blog.metadata}
+			<PostRenderer
+				content={post.content}
+				metadata={post.metadata}
 				showDate={false}
 				showReadingTime={false}
 				showCategory={false}

@@ -2,17 +2,17 @@
 export type * from './types';
 
 // Components
-export { BlogRenderer } from './components/BlogRenderer';
-export type { BlogRendererProps } from './components/BlogRenderer';
+export { PostRenderer } from './components/PostRenderer';
+export type { PostRendererProps } from './components/PostRenderer';
 
-export { BlogCard } from './components/BlogCard';
-export type { BlogCardProps } from './components/BlogCard';
+export { PostCard } from './components/PostCard';
+export type { PostCardProps } from './components/PostCard';
 
-export { BlogList } from './components/BlogList';
-export type { BlogListProps } from './components/BlogList';
+export { PostList } from './components/PostList';
+export type { PostListProps } from './components/PostList';
 
-export { BlogPlaceholder } from './components/BlogPlaceholder';
-export type { BlogPlaceholderProps } from './components/BlogPlaceholder';
+export { PostPlaceholder } from './components/PostPlaceholder';
+export type { PostPlaceholderProps } from './components/PostPlaceholder';
 
 // Hooks
-export { useBlogs } from './hooks/useBlogs';
+export { usePosts } from './hooks/usePosts';

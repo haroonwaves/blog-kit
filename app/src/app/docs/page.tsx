@@ -46,7 +46,7 @@ const quickLinks = [
 	},
 	{
 		title: 'React Package',
-		description: 'Beautiful components for rendering blogs',
+		description: 'Beautiful components for rendering posts',
 		href: '/docs/react-package',
 		icon: Layers,
 		color: 'from-indigo-500/10 to-blue-500/10 border-indigo-500/20',
@@ -85,7 +85,7 @@ export default function DocsPage() {
 						Welcome to Blog Kit
 					</h1>
 					<p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-						Everything you need to build a modern, markdown-based blog. Start with the basics or
+						Everything you need to build a modern, markdown-based post. Start with the basics or
 						dive deep into advanced features.
 					</p>
 				</div>

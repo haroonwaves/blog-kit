@@ -12,6 +12,15 @@ Get your blog up and running in minutes with Blog Kit. This guide shows you the 
 integrate Blog Kit into your Next.js application using Static Site Generation (SSG) for optimal
 performance and SEO.
 
+### Project Structure Example
+
+```
+/app
+/content
+  /blog
+    my-post.md
+```
+
 ### Next.js SSG (Recommended)
 
 The easiest way to get started is with Next.js using Static Site Generation (SSG):

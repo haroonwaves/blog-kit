@@ -20,11 +20,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
 	metadataBase: new URL('https://blog-kit.haroonwaves.com'),
 	title: {
-		default: 'Blog Kit - Build Your Own Blog with Markdown & TypeScript',
+		default: 'Blog Kit - Build Your Own Professional Blog with Next.js & Markdown',
 		template: '%s | Blog Kit',
 	},
 	description:
-		'Create your own blog in minutes with Blog Kit. A toolkit for building beautiful markdown-based blogs and documentation sites. ',
+		'The ultimate Next.js toolkit for building professional markdown-based blogs and documentation sites in minutes. ',
 	keywords: [
 		'build a blog',
 		'create blog',
@@ -59,9 +59,9 @@ export const metadata: Metadata = {
 		type: 'website',
 		locale: 'en_US',
 		url: 'https://blog-kit.haroonwaves.com',
-		title: 'Blog Kit - Build Your Own Blog with Markdown & TypeScript',
+		title: 'Blog Kit - Build Your Own Professional Blog with Next.js & Markdown',
 		description:
-			'Create your own blog in minutes. A modern toolkit for building beautiful markdown-based blogs with zero configuration. Perfect for developers, writers, and content creators.',
+			'The ultimate Next.js toolkit for building professional markdown-based blogs in minutes with zero configuration. Perfect for developers looking to build their own blog with React Server Components.',
 		siteName: 'Blog Kit',
 		images: [
 			{
@@ -74,9 +74,9 @@ export const metadata: Metadata = {
 	},
 	twitter: {
 		card: 'summary_large_image',
-		title: 'Blog Kit - Build Your Own Blog with Markdown & TypeScript',
+		title: 'Blog Kit - Build Your Own Professional Blog with Next.js & Markdown',
 		description:
-			'Create your own blog in minutes. Modern toolkit for building beautiful markdown-based blogs with zero configuration.',
+			'The ultimate Next.js toolkit for building professional markdown-based blogs in minutes with zero configuration.',
 		images: ['/og-image.png'],
 		creator: '@haroonwaves',
 	},

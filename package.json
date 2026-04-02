@@ -2,7 +2,7 @@
 	"name": "blog-kit",
 	"version": "1.3.0",
 	"private": true,
-	"description": "Toolkit for building blog systems with markdown.",
+	"description": "The ultimate Next.js toolkit for building professional blog systems with markdown.",
 	"main": "index.js",
 	"scripts": {
 		"dev": "pnpm -r dev",
@@ -23,8 +23,10 @@
 		"markdown",
 		"react",
 		"nextjs",
+		"nextjs-blog",
 		"blog-engine",
 		"ssg",
+		"server-components",
 		"blog-kit"
 	],
 	"author": "Haroon (https://github.com/haroonwaves)",

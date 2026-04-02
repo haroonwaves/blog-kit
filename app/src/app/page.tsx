@@ -3,11 +3,13 @@ import { BookOpen, Zap, Code2, Palette, ArrowRight, Github } from 'lucide-react'
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-	title: 'Build Your Own Blog with Markdown & TypeScript - Blog Kit',
+	title: 'Build Your Own Blog with Next.js, Markdown & TypeScript - Blog Kit',
 	description:
-		'Build your own blog in minutes with Blog Kit. A free, open-source toolkit for creating beautiful markdown-based blogs and documentation sites.',
+		'Build your own professional blog in minutes with Blog Kit. The ultimate Next.js toolkit for creating beautiful markdown-based blogs and documentation sites.',
 	keywords: [
-		'how to build a blog',
+		'nextjs blog toolkit',
+		'build blog with nextjs',
+		'markdown blog nextjs',
 		'create your own blog',
 		'build blog from scratch',
 		'markdown blog tutorial',
@@ -19,17 +21,17 @@ export const metadata: Metadata = {
 		'blog for developers',
 	],
 	openGraph: {
-		title: 'Build Your Own Blog with Markdown & TypeScript - Blog Kit',
+		title: 'Build Your Own Blog with Next.js, Markdown & TypeScript - Blog Kit',
 		description:
-			'Create your own blog in minutes. Free, open-source toolkit for building beautiful markdown-based blogs with zero configuration.',
+			'Create your own professional blog in minutes. The ultimate Next.js toolkit for building beautiful markdown-based blogs with zero configuration.',
 		type: 'website',
 		url: 'https://blog-kit.haroonwaves.com',
 	},
 	twitter: {
 		card: 'summary_large_image',
-		title: 'Build Your Own Blog with Markdown & TypeScript',
+		title: 'Build Your Own Blog with Next.js, Markdown & TypeScript',
 		description:
-			'Create your own blog in minutes. Free, open-source toolkit for building beautiful markdown-based blogs.',
+			'Create your own professional blog in minutes. The ultimate Next.js toolkit for building beautiful markdown-based blogs.',
 	},
 	alternates: {
 		canonical: 'https://blog-kit.haroonwaves.com',
@@ -50,7 +52,7 @@ export default function HomePage() {
 			priceCurrency: 'USD',
 		},
 		description:
-			'A modern, TypeScript-first toolkit for building markdown-based blog systems with minimal configuration. Perfect for developers who want to build their own blog.',
+			'A modern, Next.js-first toolkit for building markdown-based blog systems with minimal configuration. Perfect for developers who want to build their own professional blog.',
 		url: 'https://blog-kit.haroonwaves.com',
 		author: {
 			'@type': 'Person',
@@ -63,7 +65,7 @@ export default function HomePage() {
 			ratingCount: '1',
 		},
 		keywords:
-			'blog builder, markdown blog, TypeScript blog, React blog, Next.js blog, build your own blog, create blog, developer blog',
+			'nextjs blog builder, markdown blog nextjs, TypeScript blog, React blog, Next.js blog toolkit, build your own blog, create blog, developer blog',
 	};
 
 	return (
@@ -100,8 +102,8 @@ export default function HomePage() {
 
 						{/* Subheading */}
 						<p className="mb-12 text-xl text-muted-foreground md:text-2xl max-w-3xl mx-auto animate-fade-in-up delay-200">
-							A modern, TypeScript-first toolkit for building markdown-based blog systems with
-							minimal configuration.
+							A modern, Next.js-first toolkit for building professional markdown-based blog systems
+							with minimal configuration.
 						</p>
 
 						{/* CTA Buttons */}

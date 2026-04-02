@@ -6,11 +6,11 @@ description:
 date: 2024-01-03
 ---
 
-## Quick Start
+## Quick Start with Next.js
 
 Get your blog up and running in minutes with Blog Kit. This guide shows you the fastest way to
-integrate Blog Kit into your Next.js application using Static Site Generation (SSG) for optimal
-performance and SEO.
+integrate Blog Kit into your Next.js application using Server Components and Static Site Generation
+(SSG) for optimal performance and SEO.
 
 ### Project Structure Example
 
@@ -80,6 +80,5 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 }
 ```
 
-For more examples, see [Next.js SSG Example](#nextjs-ssg-example-static-site-generation),
-[Next.js SSR Example](#nextjs-ssr-example-server-side-rendering), or
-[Pure React Example](#pure-react-example-client-side).
+For more examples, see [Next.js SSG Example](#nextjs-ssg-example-static-site-generation) or
+[Next.js SSR Example](#nextjs-ssr-example-server-side-rendering).

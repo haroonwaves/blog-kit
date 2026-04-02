@@ -13,8 +13,10 @@
 		"markdown",
 		"react",
 		"nextjs",
+		"nextjs-blog",
 		"blog-engine",
 		"ssg",
+		"server-side",
 		"blog-kit"
 	],
 	"author": "Haroon (https://github.com/haroonwaves)",

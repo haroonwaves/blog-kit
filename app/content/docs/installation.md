@@ -6,9 +6,9 @@ date: 2024-01-02
 
 ## Installation
 
-Get started with Blog Kit by installing the packages you need. Choose between the core package for
-markdown parsing utilities or the React package for pre-built UI components. Both packages are
-available on npm and support all major package managers.
+Get started with Blog Kit by installing the packages you need. Designed primarily for Next.js
+applications, you can choose between the core package for server-side markdown parsing or the React
+package for pre-built UI components.
 
 ### Core Package
 

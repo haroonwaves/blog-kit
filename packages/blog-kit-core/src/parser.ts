@@ -5,49 +5,6 @@ import readingTime from 'reading-time';
 import type { BlogMeta, Blog, BlogConfig } from './types';
 
 /**
- * Client-side compatible: Extract blog metadata from raw blog content.
- * This function works in browser environments (pure React) where you have
- * the blog content as a string (e.g., fetched from an API or imported).
- *
- * @param content - Raw blog content string
- * @param slug - Blog post slug/identifier
- * @returns Parsed blog metadata
- */
-export function extractBlogMeta(content: string, slug: string): BlogMeta {
-	const { data, content: BlogContent } = matter(content);
-	const readingTimeText = readingTime(BlogContent).text;
-
-	return {
-		slug,
-		...data,
-		readingTime: readingTimeText,
-	} as BlogMeta;
-}
-
-/**
- * Client-side compatible: Extract blog data from raw blog content.
- * This function works in browser environments (pure React) where you have
- * the blog content as a string (e.g., fetched from an API or imported).
- *
- * @param content - Raw Blog content string
- * @param slug - Blog post slug/identifier
- * @returns Parsed blog data with metadata and content
- */
-export function extractBlog(content: string, slug: string): Blog {
-	const { data, content: BlogContent } = matter(content);
-	const readingTimeText = readingTime(BlogContent).text;
-
-	return {
-		metadata: {
-			...(data as Omit<BlogMeta, 'slug' | 'readingTime'>),
-			slug,
-			readingTime: readingTimeText,
-		},
-		content: BlogContent,
-	};
-}
-
-/**
  * SSR and SSG only: Get all blogs metadata from the filesystem.
  * This function requires Node.js fs module and only works in server environments
  * (Next.js SSR/SSG, Node.js scripts, etc.).

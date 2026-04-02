@@ -6,15 +6,15 @@ description:
 date: 2024-01-01
 ---
 
-## Build Your Own Blog with Blog Kit
+## Build Your Professional Blog with Next.js & Blog Kit
 
-Blog Kit is a modern, TypeScript-first toolkit designed to help you **build your own blog** with
-markdown in minutes. Whether you're creating a personal blog, documentation site, or content
-platform, Blog Kit provides all the essential tools you need to build a professional blog with
+Blog Kit is a modern, Next.js-first toolkit designed to help you **build your own professional blog**
+with markdown in minutes. Whether you me creating a personal blog, documentation site, or content
+platform, Blog Kit provides all the essential tools you need to build a high-performance blog with
 minimal configuration.
 
 **Perfect for developers, writers, and content creators** who want full control over their blog
-without the complexity of traditional CMS platforms.
+using the power of Next.js and React server components.
 
 ### Key Features
 
@@ -45,7 +45,7 @@ without the complexity of traditional CMS platforms.
 - ✅ Loading placeholders
 - ✅ Customizable styling with Tailwind CSS classes
 - ✅ TypeScript support with full type definitions
-- ✅ Works with any routing library (Next.js, Remix, etc.)
+- ✅ Work seamlessly with Next.js App Router and Server Components
 
 ### Use Cases
 

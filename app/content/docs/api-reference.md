@@ -65,45 +65,6 @@ if (blog) {
 }
 ```
 
-#### Client-Side Functions (Browser compatible)
-
-##### `extractBlogMeta(content: string, slug: string): BlogMeta`
-
-Extracts blog metadata from raw markdown content. Works in browser environments.
-
-**Parameters:**
-
-- `content` (string): Raw markdown content string
-- `slug` (string): Blog post slug/identifier
-
-**Returns:** `BlogMeta` object
-
-**Example:**
-
-```typescript
-const blogMeta = extractBlogMeta(markdownContent, 'my-blog-post');
-console.log(blogMeta.title, blogMeta.readingTime);
-```
-
-##### `extractBlog(content: string, slug: string): Blog`
-
-Extracts full blog data from raw markdown content. Works in browser environments.
-
-**Parameters:**
-
-- `content` (string): Raw markdown content string
-- `slug` (string): Blog post slug/identifier
-
-**Returns:** `Blog` object
-
-**Example:**
-
-```typescript
-const blog = extractBlog(markdownContent, 'my-blog-post');
-console.log(blog.metadata.title);
-console.log(blog.content); // markdown content
-```
-
 ### React Package
 
 #### Components

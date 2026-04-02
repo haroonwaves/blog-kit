@@ -20,14 +20,14 @@ export function BlogList({
 }: BlogListProps) {
 	if (metadata.length === 0) {
 		return (
-			<div className={`text-center text-gray-500 dark:text-gray-400 py-12 ${className}`}>
+			<div className={`bk:text-center bk:text-gray-500 bk:dark:text-gray-400 bk:py-12 ${className}`}>
 				{emptyMessage}
 			</div>
 		);
 	}
 
 	return (
-		<div className={`flex flex-col gap-6 ${className}`}>
+		<div className={`bk:flex bk:flex-col bk:gap-6 ${className}`}>
 			{metadata.map((meta) => (
 				<BlogCard
 					key={meta.slug}

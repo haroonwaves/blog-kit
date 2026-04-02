@@ -41,10 +41,11 @@ Import these styles **before** your app's global CSS:
 // In your root layout or entry file (e.g., layout.tsx, App.tsx)
 import '@haroonwaves/blog-kit-react/dist/index.css'; // Prism syntax highlighting
 import '@haroonwaves/blog-kit-react/dist/style.css'; // Component styles
-import './globals.css'; // Your app's CSS (must come after blog-kit)
+import './globals.css'; // Your app's CSS
 ```
 
-> **Important:** The import order matters! Blog Kit uses Tailwind CSS v4 which relies on CSS cascade
-> layers. If your app also uses Tailwind CSS, importing your app's CSS before Blog Kit will cause
-> styling conflicts (e.g., incorrect font sizes, broken layouts). Always import Blog Kit's CSS first
-> so your app can properly override styles if needed.
+> **Important:** Blog Kit uses a dedicated `bk:` namespace for all its utility classes (e.g.,
+> `bk:text-2xl`). This ensures that library styles never clash with your app's own Tailwind
+> utilities. While the `bk:` namespace makes styling robust, importing Blog Kit's CSS **before**
+> your app's global CSS remains standard practice so that your app's base typography can serve as
+> the foundation.

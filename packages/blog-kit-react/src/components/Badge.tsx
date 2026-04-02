@@ -5,15 +5,15 @@ type BadgeProps = {
 
 // Color palette with distinct, visually appealing colors
 const colorVariants = [
-	'bg-blue-100 dark:bg-blue-900/30 text-blue-500 dark:text-blue-300',
-	'bg-orange-100 dark:bg-orange-900/30 text-orange-500 dark:text-orange-300',
-	'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-500 dark:text-emerald-300',
-	'bg-violet-100 dark:bg-violet-900/30 text-violet-500 dark:text-violet-300',
-	'bg-amber-100 dark:bg-amber-900/30 text-amber-500 dark:text-amber-300',
-	'bg-rose-100 dark:bg-rose-900/30 text-rose-500 dark:text-rose-300',
-	'bg-cyan-100 dark:bg-cyan-900/30 text-cyan-500 dark:text-cyan-300',
-	'bg-fuchsia-100 dark:bg-fuchsia-900/30 text-fuchsia-500 dark:text-fuchsia-300',
-	'bg-teal-100 dark:bg-teal-900/30 text-teal-500 dark:text-teal-300',
+	'bk:bg-blue-100 bk:dark:bg-blue-900/30 bk:text-blue-500 bk:dark:text-blue-300',
+	'bk:bg-orange-100 bk:dark:bg-orange-900/30 bk:text-orange-500 bk:dark:text-orange-300',
+	'bk:bg-emerald-100 bk:dark:bg-emerald-900/30 bk:text-emerald-500 bk:dark:text-emerald-300',
+	'bk:bg-violet-100 bk:dark:bg-violet-900/30 bk:text-violet-500 bk:dark:text-violet-300',
+	'bk:bg-amber-100 bk:dark:bg-amber-900/30 bk:text-amber-500 bk:dark:text-amber-300',
+	'bk:bg-rose-100 bk:dark:bg-rose-900/30 bk:text-rose-500 bk:dark:text-rose-300',
+	'bk:bg-cyan-100 bk:dark:bg-cyan-900/30 bk:text-cyan-500 bk:dark:text-cyan-300',
+	'bk:bg-fuchsia-100 bk:dark:bg-fuchsia-900/30 bk:text-fuchsia-500 bk:dark:text-fuchsia-300',
+	'bk:bg-teal-100 bk:dark:bg-teal-900/30 bk:text-teal-500 bk:dark:text-teal-300',
 ];
 
 // djb2-style hash for consistent, well-distributed color per tag
@@ -31,7 +31,7 @@ export function Badge({ children, className }: BadgeProps) {
 
 	return (
 		<span
-			className={`inline-flex items-center rounded-full border border-transparent px-2.5 py-0.5 text-xs font-semibold shrink-0 ${colorClass} ${className ?? ''}`}
+			className={`bk:inline-flex bk:items-center bk:rounded-full bk:border bk:border-transparent bk:px-2.5 bk:py-0.5 bk:text-xs bk:font-semibold bk:shrink-0 ${colorClass} ${className ?? ''}`}
 		>
 			{children}
 		</span>

@@ -27,20 +27,20 @@ export function BlogCard({
 
 	return (
 		<article
-			className={`rounded-lg border border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600 bg-white dark:bg-gray-800 p-6 transition-colors min-h-[200px] flex flex-col ${className}`}
+			className={`bk:rounded-lg bk:border bk:border-gray-200 bk:dark:border-gray-700 bk:hover:border-gray-300 bk:dark:hover:border-gray-600 bk:bg-white bk:dark:bg-gray-800 bk:p-6 bk:transition-colors bk:min-h-[200px] bk:flex bk:flex-col ${className}`}
 		>
 			{(showCategory || showReadingTime || showDate) && (
-				<div className="mb-3">
-					<div className="flex items-center gap-3 justify-between">
+				<div className="bk:mb-3">
+					<div className="bk:flex bk:items-center bk:gap-3 bk:justify-between">
 						{showCategory && metadata.categories?.length ? (
-							<div className="flex items-center gap-1.5 flex-nowrap overflow-hidden">
+							<div className="bk:flex bk:items-center bk:gap-1.5 bk:flex-nowrap bk:overflow-hidden">
 								{metadata.categories.slice(0, 2).map((cat) => (
 									<Badge key={cat}>{cat}</Badge>
 								))}
 							</div>
 						) : null}
 						{(showReadingTime || showDate) && (
-							<div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 whitespace-nowrap">
+							<div className="bk:flex bk:items-center bk:gap-2 bk:text-sm bk:text-gray-500 bk:dark:text-gray-400 bk:whitespace-nowrap">
 								{showReadingTime && <span>{metadata.readingTime}</span>}
 								{showReadingTime && showDate && <span>•</span>}
 								{showDate && (
@@ -60,19 +60,19 @@ export function BlogCard({
 
 			{Link(
 				href,
-				<h2 className="font-semibold text-xl text-gray-700 dark:text-gray-100 mb-2 hover:underline transition-colors line-clamp-2">
+				<h2 className="bk:font-semibold bk:text-xl bk:text-gray-700 bk:dark:text-gray-100 bk:mb-2 bk:hover:underline bk:transition-colors bk:line-clamp-2">
 					{metadata.title}
 				</h2>
 			)}
 
-			<p className="text-sm text-gray-500 dark:text-gray-300 mb-2 leading-6 line-clamp-2">
+			<p className="bk:text-sm bk:text-gray-500 bk:dark:text-gray-300 bk:mb-2 bk:leading-6 bk:line-clamp-2">
 				{metadata.description}
 			</p>
 
-			<div className="mt-auto">
+			<div className="bk:mt-auto">
 				{Link(
 					href,
-					<span className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium text-sm">
+					<span className="bk:inline-flex bk:items-center bk:text-blue-600 bk:dark:text-blue-400 bk:hover:text-blue-700 bk:dark:hover:text-blue-300 bk:font-medium bk:text-sm">
 						Read more →
 					</span>
 				)}

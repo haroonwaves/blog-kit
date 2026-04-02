@@ -22,56 +22,56 @@ export interface BlogRendererProps {
 const defaultComponents = {
 	h1: (props: ComponentProps<'h1'>) => (
 		<h1
-			className="mt-10 first:mt-0 mb-5 text-3xl md:text-4xl font-semibold tracking-tight text-gray-800 dark:text-gray-200"
+			className="bk:mt-10 bk:first:mt-0 bk:mb-5 bk:text-3xl bk:md:text-4xl bk:font-semibold bk:tracking-tight bk:text-gray-800 bk:dark:text-gray-200"
 			{...props}
 		/>
 	),
 
 	h2: (props: ComponentProps<'h2'>) => (
 		<h2
-			className="mt-8 first:mt-0 mb-4 text-2xl md:text-3xl font-semibold tracking-tight text-gray-800 dark:text-gray-200"
+			className="bk:mt-8 bk:first:mt-0 bk:mb-4 bk:text-2xl bk:md:text-3xl bk:font-semibold bk:tracking-tight bk:text-gray-800 bk:dark:text-gray-200"
 			{...props}
 		/>
 	),
 
 	h3: (props: ComponentProps<'h3'>) => (
 		<h3
-			className="mt-6 mb-4 first:mt-0 text-xl md:text-2xl font-semibold text-gray-800 dark:text-gray-200"
+			className="bk:mt-6 bk:mb-4 bk:first:mt-0 bk:text-xl bk:md:text-2xl bk:font-semibold bk:text-gray-800 bk:dark:text-gray-200"
 			{...props}
 		/>
 	),
 
 	h4: (props: ComponentProps<'h4'>) => (
 		<h4
-			className="mt-5 mb-3 first:mt-0 text-lg font-semibold text-gray-800 dark:text-gray-200"
+			className="bk:mt-5 bk:mb-3 bk:first:mt-0 bk:text-lg bk:font-semibold bk:text-gray-800 bk:dark:text-gray-200"
 			{...props}
 		/>
 	),
 
 	h5: (props: ComponentProps<'h5'>) => (
 		<h5
-			className="mt-4 mb-2 first:mt-0 text-base font-semibold text-gray-700 dark:text-gray-200"
+			className="bk:mt-4 bk:mb-2 bk:first:mt-0 bk:text-base bk:font-semibold bk:text-gray-700 bk:dark:text-gray-200"
 			{...props}
 		/>
 	),
 
 	h6: (props: ComponentProps<'h6'>) => (
 		<h6
-			className="mt-4 mb-2 text-sm first:mt-0 font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-300"
+			className="bk:mt-4 bk:mb-2 bk:text-sm bk:first:mt-0 bk:font-semibold bk:uppercase bk:tracking-wide bk:text-gray-600 bk:dark:text-gray-300"
 			{...props}
 		/>
 	),
 
 	p: (props: ComponentProps<'p'>) => (
-		<p className="mb-4 leading-7 text-gray-700 dark:text-gray-300" {...props} />
+		<p className="bk:mb-4 bk:leading-7 bk:text-gray-700 bk:dark:text-gray-300" {...props} />
 	),
 
 	ul: (props: ComponentProps<'ul'>) => (
-		<ul className="mb-4 ml-6 list-disc space-y-2 text-gray-700 dark:text-gray-300" {...props} />
+		<ul className="bk:mb-4 bk:ml-6 bk:list-disc bk:space-y-2 bk:text-gray-700 bk:dark:text-gray-300" {...props} />
 	),
 
 	ol: (props: ComponentProps<'ol'>) => (
-		<ol className="mb-4 ml-6 list-decimal space-y-2 text-gray-700 dark:text-gray-300" {...props} />
+		<ol className="bk:mb-4 bk:ml-6 bk:list-decimal bk:space-y-2 bk:text-gray-700 bk:dark:text-gray-300" {...props} />
 	),
 
 	li: (props: ComponentProps<'li'>) => <li {...props} />,
@@ -80,7 +80,7 @@ const defaultComponents = {
 		const isInline = !className;
 		return isInline ? (
 			<code
-				className="rounded bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 text-sm font-mono text-rose-600 dark:text-rose-400"
+				className="bk:rounded bk:bg-gray-100 bk:dark:bg-gray-800 bk:px-1.5 bk:py-0.5 bk:text-sm bk:font-mono bk:text-rose-600 bk:dark:text-rose-400"
 				{...props}
 			>
 				{children}
@@ -95,7 +95,7 @@ const defaultComponents = {
 	pre: ({ className: preClassName, children, ...props }: ComponentProps<'pre'>) => {
 		return (
 			<pre
-				className={`mb-4 rounded-lg overflow-x-auto [&>code]:block [&>code]:p-4 ${
+				className={`bk:mb-4 bk:rounded-lg bk:overflow-x-auto [&>code]:bk:block [&>code]:bk:p-4 ${
 					preClassName || ''
 				}`}
 				{...props}
@@ -107,69 +107,69 @@ const defaultComponents = {
 
 	blockquote: (props: ComponentProps<'blockquote'>) => (
 		<blockquote
-			className="my-6 border-l-4 border-blue-500 pl-4 italic text-gray-600 dark:text-gray-400"
+			className="bk:my-6 bk:border-l-4 bk:border-blue-500 bk:pl-4 bk:italic bk:text-gray-600 bk:dark:text-gray-400"
 			{...props}
 		/>
 	),
 
 	a: (props: ComponentProps<'a'>) => (
 		<a
-			className="text-blue-600 dark:text-blue-400 underline underline-offset-4 hover:text-blue-800 dark:hover:text-blue-300"
+			className="bk:text-blue-600 bk:dark:text-blue-400 bk:underline bk:underline-offset-4 bk:hover:text-blue-800 bk:dark:hover:text-blue-300"
 			{...props}
 		/>
 	),
 
 	strong: (props: ComponentProps<'strong'>) => (
-		<strong className="font-semibold text-gray-800 dark:text-gray-200" {...props} />
+		<strong className="bk:font-semibold bk:text-gray-800 bk:dark:text-gray-200" {...props} />
 	),
 
 	em: (props: ComponentProps<'em'>) => (
-		<em className="italic text-gray-800 dark:text-gray-200" {...props} />
+		<em className="bk:italic bk:text-gray-800 bk:dark:text-gray-200" {...props} />
 	),
 
 	del: (props: ComponentProps<'del'>) => (
-		<del className="text-gray-500 dark:text-gray-400" {...props} />
+		<del className="bk:text-gray-500 bk:dark:text-gray-400" {...props} />
 	),
 
 	hr: (props: ComponentProps<'hr'>) => (
-		<hr className="my-9 border-gray-200 dark:border-neutral-900" {...props} />
+		<hr className="bk:my-9 bk:border-gray-200 bk:dark:border-neutral-900" {...props} />
 	),
 
 	br: (props: ComponentProps<'br'>) => <br {...props} />,
 
 	img: (props: ComponentProps<'img'>) => (
-		<img className="my-6 rounded-xl max-w-full h-auto" {...props} />
+		<img className="bk:my-6 bk:rounded-xl bk:max-w-full bk:h-auto" {...props} />
 	),
 
 	table: (props: ComponentProps<'table'>) => (
-		<div className="my-6 overflow-x-auto">
+		<div className="bk:my-6 bk:overflow-x-auto">
 			<table
-				className="w-full border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden text-sm"
+				className="bk:w-full bk:border bk:border-gray-200 bk:dark:border-gray-700 bk:rounded-lg bk:overflow-hidden bk:text-sm"
 				{...props}
 			/>
 		</div>
 	),
 
 	thead: (props: ComponentProps<'thead'>) => (
-		<thead className="bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-200" {...props} />
+		<thead className="bk:bg-gray-50 bk:dark:bg-gray-800 bk:text-gray-700 bk:dark:text-gray-200" {...props} />
 	),
 
 	tbody: (props: ComponentProps<'tbody'>) => <tbody {...props} />,
 
 	tr: (props: ComponentProps<'tr'>) => (
-		<tr className="border-b last:border-b-0 border-gray-200 dark:border-gray-700" {...props} />
+		<tr className="bk:border-b bk:last:border-b-0 bk:border-gray-200 bk:dark:border-gray-700" {...props} />
 	),
 
 	th: (props: ComponentProps<'th'>) => (
-		<th className="px-4 py-3 text-left font-semibold" {...props} />
+		<th className="bk:px-4 bk:py-3 bk:text-left bk:font-semibold" {...props} />
 	),
 
 	td: (props: ComponentProps<'td'>) => (
-		<td className="px-4 py-3 text-gray-700 dark:text-gray-300" {...props} />
+		<td className="bk:px-4 bk:py-3 bk:text-gray-700 bk:dark:text-gray-300" {...props} />
 	),
 
 	input: (props: ComponentProps<'input'>) => (
-		<input type="checkbox" disabled className="mr-2 accent-blue-600" {...props} />
+		<input type="checkbox" disabled className="bk:mr-2 bk:accent-blue-600" {...props} />
 	),
 };
 
@@ -187,16 +187,16 @@ export function BlogRenderer({
 	return (
 		<>
 			{(showCategory || showReadingTime || showDate) && (
-				<div className="flex items-center gap-3 mb-4">
+				<div className="bk:flex bk:items-center bk:gap-3 bk:mb-4">
 					{showCategory && metadata.categories?.length ? (
-						<div className="flex items-center gap-1.5 flex-wrap">
+						<div className="bk:flex bk:items-center bk:gap-1.5 bk:flex-wrap">
 							{metadata.categories.map((cat) => (
 								<Badge key={cat}>{cat}</Badge>
 							))}
 						</div>
 					) : null}
 					{(showReadingTime || showDate) && (
-						<div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 whitespace-nowrap">
+						<div className="bk:flex bk:items-center bk:gap-2 bk:text-sm bk:text-gray-500 bk:dark:text-gray-400 bk:whitespace-nowrap">
 							{showReadingTime && <span>{metadata.readingTime}</span>}
 							{showReadingTime && showDate && <span>•</span>}
 							{showDate && (
@@ -213,7 +213,7 @@ export function BlogRenderer({
 				</div>
 			)}
 
-			<div className={`prose prose-slate dark:prose-invert max-w-none ${className}`}>
+			<div className={`bk:prose bk:prose-slate bk:dark:prose-invert bk:max-w-none ${className}`}>
 				<ReactMarkdown
 					remarkPlugins={[remarkGfm]}
 					rehypePlugins={[rehypeRaw, rehypePrismPlus, rehypeSlugCustomId]}

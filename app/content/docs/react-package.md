@@ -80,24 +80,39 @@ function BlogCardExample({ blogMeta }) {
 
 ### BlogList
 
-Display a list of blog posts:
+Display a list of blog posts with built-in search and filtering:
 
 ```tsx
 import { BlogList } from '@haroonwaves/blog-kit-react';
 
-function BlogListExample({ blogsMeta }) {
-	return <BlogList metadata={blogsMeta} basePath="/blog" emptyMessage="No posts found." />;
+function BlogListPage({ blogsMeta }) {
+	return (
+		<BlogList
+			metadata={blogsMeta}
+			basePath="/blog"
+			title="Latest Blogs"
+			description="Check out our latest blog posts about web development."
+			emptyMessage="No posts found."
+		/>
+	);
 }
 ```
 
 **Props:**
 
 - `metadata` (BlogMeta[], required): Array of blog metadata
+- `title` (string, optional): Title to display above the blog list
+- `description` (string, optional): Description to display above the blog list
 - `basePath` (string, optional): Base path for blog links (default: '/blog')
 - `renderLink` (function, optional): Custom link renderer
-- `className` (string, optional): Additional CSS classes
+- `className` (string, optional): Additional CSS classes for the container
 - `emptyMessage` (string, optional): Message when no blogs (default: 'No blog posts found.')
 - `cardProps` (object, optional): Props to pass to each BlogCard
+- `showFilter` (boolean, optional): Show search and category filter (default: true)
+- `classNames` (object, optional): Custom styles for specific elements
+  - `title` (string): Styles for the h1 title
+  - `description` (string): Styles for the description paragraph
+  - `filter` (object): Styles for the filter component
 
 ### BlogPlaceholder
 
@@ -118,34 +133,34 @@ function LoadingBlogs() {
 
 ### useBlogs Hook
 
-Filter and search through blog posts:
+The `useBlogs` hook is the logical engine that powers both `BlogList` and `Filter`. Use it when you
+want to build a custom blog layout while keeping the library's filtering logic and UI consistent.
 
 ```tsx
-import { useBlogs } from '@haroonwaves/blog-kit-react';
+import { useBlogs, Filter, BlogCard } from '@haroonwaves/blog-kit-react';
 
-function BlogSearch({ blogsMeta }) {
+function CustomBlogPage({ blogsMeta }) {
+	// 1. Get logic from hook
 	const { metadata, searchTerm, setSearchTerm, selectedCategory, setSelectedCategory, categories } =
 		useBlogs(blogsMeta);
 
 	return (
 		<div>
-			<input
-				value={searchTerm}
-				onChange={(e) => setSearchTerm(e.target.value)}
-				placeholder="Search blogs..."
+			{/* 2. Pass hook state directly to Filter component */}
+			<Filter
+				searchTerm={searchTerm}
+				setSearchTerm={setSearchTerm}
+				selectedCategory={selectedCategory}
+				setSelectedCategory={setSelectedCategory}
+				categories={categories}
 			/>
-			<select
-				value={selectedCategory || ''}
-				onChange={(e) => setSelectedCategory(e.target.value || null)}
-			>
-				<option value="">All Categories</option>
-				{categories.map((cat) => (
-					<option key={cat} value={cat}>
-						{cat}
-					</option>
+
+			{/* 3. Render filtered results in any way you like */}
+			<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+				{metadata.map((blog) => (
+					<BlogCard key={blog.slug} metadata={blog} />
 				))}
-			</select>
-			<BlogList metadata={metadata} />
+			</div>
 		</div>
 	);
 }
@@ -199,9 +214,10 @@ export default function BlogListPage() {
 	return (
 		<div className="min-h-screen bg-gray-50">
 			<div className="max-w-7xl mx-auto px-4 py-12">
-				<h1 className="text-4xl font-bold mb-4">Blogs</h1>
 				<BlogList
 					metadata={blogsMeta}
+					title="Blogs"
+					description="Read our latest insights and tutorials."
 					basePath="/blog"
 					renderLink={(href, children) => <Link href={href}>{children}</Link>}
 				/>
@@ -305,4 +321,3 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 ```
 
 **Note:** SSG is recommended for blogs as it pre-renders pages at build time for better performance.
-

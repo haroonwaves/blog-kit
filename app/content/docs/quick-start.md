@@ -40,6 +40,8 @@ export default function BlogPage() {
 	return (
 		<BlogList
 			metadata={blogsMeta}
+			title="Blogs"
+			description="Welcome to my blog built with Blog Kit."
 			basePath="/blog"
 			renderLink={(href, children) => <Link href={href}>{children}</Link>}
 		/>

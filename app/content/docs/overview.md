@@ -41,7 +41,8 @@ using the power of Next.js and React server components.
 - ✅ Automatic heading IDs for anchor links (using
   [rehype-slug-custom-id](https://github.com/valeriangalliat/rehype-slug-custom-id))
 - ✅ Responsive blog card components
-- ✅ Search and filter functionality via `useBlogs` hook
+- ✅ Powerful `BlogList` with built-in search, category filtering, and count
+- ✅ Search and filter functionality via `useBlogs` hook for custom UIs
 - ✅ Loading placeholders
 - ✅ Customizable styling with Tailwind CSS classes
 - ✅ TypeScript support with full type definitions

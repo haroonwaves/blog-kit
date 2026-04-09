@@ -67,11 +67,17 @@ const defaultComponents = {
 	),
 
 	ul: (props: ComponentProps<'ul'>) => (
-		<ul className="bk:mb-4 bk:ml-6 bk:list-disc bk:space-y-2 bk:text-gray-700 bk:dark:text-gray-300" {...props} />
+		<ul
+			className="bk:mb-4 bk:ml-6 bk:list-disc bk:space-y-2 bk:text-gray-700 bk:dark:text-gray-300"
+			{...props}
+		/>
 	),
 
 	ol: (props: ComponentProps<'ol'>) => (
-		<ol className="bk:mb-4 bk:ml-6 bk:list-decimal bk:space-y-2 bk:text-gray-700 bk:dark:text-gray-300" {...props} />
+		<ol
+			className="bk:mb-4 bk:ml-6 bk:list-decimal bk:space-y-2 bk:text-gray-700 bk:dark:text-gray-300"
+			{...props}
+		/>
 	),
 
 	li: (props: ComponentProps<'li'>) => <li {...props} />,
@@ -151,13 +157,19 @@ const defaultComponents = {
 	),
 
 	thead: (props: ComponentProps<'thead'>) => (
-		<thead className="bk:bg-gray-50 bk:dark:bg-gray-800 bk:text-gray-700 bk:dark:text-gray-200" {...props} />
+		<thead
+			className="bk:bg-gray-50 bk:dark:bg-gray-800 bk:text-gray-700 bk:dark:text-gray-200"
+			{...props}
+		/>
 	),
 
 	tbody: (props: ComponentProps<'tbody'>) => <tbody {...props} />,
 
 	tr: (props: ComponentProps<'tr'>) => (
-		<tr className="bk:border-b bk:last:border-b-0 bk:border-gray-200 bk:dark:border-gray-700" {...props} />
+		<tr
+			className="bk:border-b bk:last:border-b-0 bk:border-gray-200 bk:dark:border-gray-700"
+			{...props}
+		/>
 	),
 
 	th: (props: ComponentProps<'th'>) => (

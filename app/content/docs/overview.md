@@ -8,10 +8,10 @@ date: 2024-01-01
 
 ## Build Your Professional Blog with Next.js & Blog Kit
 
-Blog Kit is a modern, Next.js-first toolkit designed to help you **build your own professional blog**
-with markdown in minutes. Whether you me creating a personal blog, documentation site, or content
-platform, Blog Kit provides all the essential tools you need to build a high-performance blog with
-minimal configuration.
+Blog Kit is a modern, Next.js-first toolkit designed to help you **build your own professional
+blog** with markdown in minutes. Whether you're creating a personal blog, documentation site, or
+content platform, Blog Kit provides all the essential tools you need to build a high-performance
+blog with minimal configuration.
 
 **Perfect for developers, writers, and content creators** who want full control over their blog
 using the power of Next.js and React server components.
@@ -40,10 +40,10 @@ using the power of Next.js and React server components.
 - ✅ Raw HTML rendering support (using [rehype-raw](https://github.com/rehypejs/rehype-raw))
 - ✅ Automatic heading IDs for anchor links (using
   [rehype-slug-custom-id](https://github.com/valeriangalliat/rehype-slug-custom-id))
-- ✅ Responsive blog card components
-- ✅ Powerful `BlogList` with built-in search, category filtering, and count
-- ✅ Search and filter functionality via `useBlogs` hook for custom UIs
-- ✅ Loading placeholders
+- ✅ Beautiful, stateless `BlogList` for high-performance rendering
+- ✅ Customizable `Filter` component with built-in search, categories, and results count
+- ✅ `useBlogs` hook and shared utilities for easy search/filter integration
+- ✅ Loading placeholders and responsive blog cards
 - ✅ Customizable styling with Tailwind CSS classes
 - ✅ TypeScript support with full type definitions
 - ✅ Work seamlessly with Next.js App Router and Server Components
@@ -74,8 +74,8 @@ Blog Kit is perfect for:
 
 Ready to build your blog? Get started in minutes:
 
-1. **[Install](/docs/installation)** - Add Blog Kit to your project
-2. **[Quick Start](/docs/quick-start)** - Follow our step-by-step guide
-3. **[API Reference](/docs/api-reference)** - Explore all available features
+1. **[Getting Started](/docs/getting-started)** — Install, configure, and build your first blog
+2. **[Guides](/docs/guides)** — Add search, dark mode, and customize components
+3. **[API Reference](/docs/api-reference)** — Complete reference for all functions and components
 
-Or jump straight to the [Quick Start Guide](/docs/quick-start) to see Blog Kit in action.
+Or jump straight to the [Getting Started Guide](/docs/getting-started) to see Blog Kit in action.

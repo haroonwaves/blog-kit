@@ -1,15 +1,5 @@
 import Link from 'next/link';
-import {
-	BookOpen,
-	Download,
-	Zap,
-	Package,
-	Layers,
-	FileCode,
-	Code,
-	ArrowRight,
-	Sparkles,
-} from 'lucide-react';
+import { BookOpen, Zap, Compass, FileCode, ArrowRight, Sparkles } from 'lucide-react';
 
 const quickLinks = [
 	{
@@ -21,52 +11,28 @@ const quickLinks = [
 		iconColor: 'text-blue-600 dark:text-blue-400',
 	},
 	{
-		title: 'Installation',
-		description: 'Add Blog Kit to your project in minutes',
-		href: '/docs/installation',
-		icon: Download,
+		title: 'Getting Started',
+		description: 'Install, configure, and build your blog in minutes',
+		href: '/docs/getting-started',
+		icon: Zap,
 		color: 'from-green-500/10 to-emerald-500/10 border-green-500/20',
 		iconColor: 'text-green-600 dark:text-green-400',
 	},
 	{
-		title: 'Quick Start',
-		description: 'Get up and running with a step-by-step guide',
-		href: '/docs/quick-start',
-		icon: Zap,
-		color: 'from-yellow-500/10 to-orange-500/10 border-yellow-500/20',
-		iconColor: 'text-yellow-600 dark:text-yellow-400',
-	},
-	{
-		title: 'Core Package',
-		description: 'Parse markdown files and extract metadata',
-		href: '/docs/core-package',
-		icon: Package,
+		title: 'Guides',
+		description: 'Search, filtering, dark mode, and customization',
+		href: '/docs/guides',
+		icon: Compass,
 		color: 'from-purple-500/10 to-pink-500/10 border-purple-500/20',
 		iconColor: 'text-purple-600 dark:text-purple-400',
 	},
 	{
-		title: 'React Package',
-		description: 'Beautiful components for rendering blogs',
-		href: '/docs/react-package',
-		icon: Layers,
-		color: 'from-indigo-500/10 to-blue-500/10 border-indigo-500/20',
-		iconColor: 'text-indigo-600 dark:text-indigo-400',
-	},
-	{
 		title: 'API Reference',
-		description: 'Explore all available features and APIs',
+		description: 'Complete reference for all functions, components, and types',
 		href: '/docs/api-reference',
 		icon: FileCode,
 		color: 'from-red-500/10 to-rose-500/10 border-red-500/20',
 		iconColor: 'text-red-600 dark:text-red-400',
-	},
-	{
-		title: 'Dark Mode',
-		description: 'Implement beautiful dark mode support',
-		href: '/docs/dark-mode',
-		icon: Code,
-		color: 'from-slate-500/10 to-gray-500/10 border-slate-500/20',
-		iconColor: 'text-slate-600 dark:text-slate-400',
 	},
 ];
 
@@ -94,11 +60,11 @@ export default function DocsPage() {
 			{/* Quick Start CTA */}
 			<div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
 				<Link
-					href="/docs/quick-start"
+					href="/docs/getting-started"
 					className="group inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-medium shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 active:scale-95"
 				>
 					<Zap className="h-4 w-4" />
-					Quick Start Guide
+					Getting Started
 					<ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
 				</Link>
 				<Link
@@ -113,7 +79,7 @@ export default function DocsPage() {
 			{/* Documentation Grid */}
 			<div className="space-y-6">
 				<h2 className="text-2xl font-bold text-center">Explore the Documentation</h2>
-				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+				<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 					{quickLinks.map((link) => {
 						const Icon = link.icon;
 						return (

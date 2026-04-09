@@ -3,28 +3,14 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
-import {
-	BookOpen,
-	Download,
-	Zap,
-	Package,
-	Layers,
-	FileCode,
-	Sparkles,
-	Code,
-	Menu,
-	X,
-} from 'lucide-react';
+import { BookOpen, Zap, Compass, FileCode, Sparkles, Menu, X } from 'lucide-react';
 import { useState } from 'react';
 
 const sections = [
 	{ title: 'Overview', href: '/docs/overview', icon: BookOpen },
-	{ title: 'Installation', href: '/docs/installation', icon: Download },
-	{ title: 'Quick Start', href: '/docs/quick-start', icon: Zap },
-	{ title: 'Core Package', href: '/docs/core-package', icon: Package },
-	{ title: 'React Package', href: '/docs/react-package', icon: Layers },
+	{ title: 'Getting Started', href: '/docs/getting-started', icon: Zap },
+	{ title: 'Guides', href: '/docs/guides', icon: Compass },
 	{ title: 'API Reference', href: '/docs/api-reference', icon: FileCode },
-	{ title: 'Dark Mode', href: '/docs/dark-mode', icon: Code },
 ];
 
 export function DocsSidebar() {

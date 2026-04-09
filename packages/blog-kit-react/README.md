@@ -22,8 +22,8 @@ For complete documentation, API reference, and examples, please visit the
 
 ## Quick Links
 
-- [Quick Start](https://blog-kit.haroonwaves.com/docs/quick-start)
-- [React Package Usage](https://blog-kit.haroonwaves.com/docs/react-package)
+- [Getting Started](https://blog-kit.haroonwaves.com/docs/getting-started)
+- [Guides](https://blog-kit.haroonwaves.com/docs/guides)
 - [API Reference](https://blog-kit.haroonwaves.com/docs/api-reference)
 
 ## Related Packages

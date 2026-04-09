@@ -19,3 +19,6 @@ export type { BlogPlaceholderProps } from './components/BlogPlaceholder';
 
 // Hooks
 export { useBlogs } from './hooks/useBlogs';
+
+// Utils
+export * from './utils/filter-utils';

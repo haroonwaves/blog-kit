@@ -1,6 +1,8 @@
 # Blog Kit
 
-A powerful Next.js-first toolkit for building professional blog systems with markdown. Consists of two packages: a core library for server-side markdown parsing and a React component library for rendering beautiful blog UIs.
+A powerful Next.js-first toolkit for building professional blog systems with markdown. Consists of
+two packages: a core library for server-side markdown parsing and a React component library for
+rendering beautiful blog UIs.
 
 ## Documentation
 

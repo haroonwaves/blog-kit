@@ -1,43 +1,26 @@
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import type { BlogMeta } from '../types';
 import { useDebounce } from './useDebounce';
+import { filterBlogs, getAvailableCategories } from '../utils/filter-utils';
 
 export function useBlogs(blogsMeta: BlogMeta[]) {
-	const [filteredBlogs, setFilteredBlogs] = useState(blogsMeta);
 	const [searchTerm, setSearchTerm] = useState('');
 	const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
 	const debouncedSearchTerm = useDebounce(searchTerm, 500);
 
-	const getBlogCategories = (blog: BlogMeta): string[] => {
-		return blog.categories ?? [];
-	};
-
-	useEffect(() => {
-		let filtered = blogsMeta;
-
-		if (debouncedSearchTerm) {
-			filtered = filtered.filter(
-				(blog) =>
-					blog.title.toLowerCase().includes(debouncedSearchTerm.toLowerCase()) ||
-					blog.description.toLowerCase().includes(debouncedSearchTerm.toLowerCase())
-			);
-		}
-
-		if (selectedCategory) {
-			filtered = filtered.filter((blog) => {
-				const blogCategories = getBlogCategories(blog);
-				return blogCategories.includes(selectedCategory);
-			});
-		}
-
-		setFilteredBlogs(filtered);
+	// Compute filtered results using the pure utility
+	const metadata = useMemo(() => {
+		return filterBlogs(blogsMeta, debouncedSearchTerm, selectedCategory);
 	}, [blogsMeta, debouncedSearchTerm, selectedCategory]);
 
-	const categories = Array.from(new Set(blogsMeta.flatMap((blog) => getBlogCategories(blog))));
+	// Compute available categories
+	const categories = useMemo(() => {
+		return getAvailableCategories(blogsMeta);
+	}, [blogsMeta]);
 
 	return {
-		metadata: filteredBlogs,
+		metadata,
 		searchTerm,
 		setSearchTerm,
 		selectedCategory,

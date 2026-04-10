@@ -1,9 +1,9 @@
 import React from 'react';
-import type { BlogMeta } from '../types';
+import type { ContentMeta } from '../types';
 import { Badge } from './Badge';
 
-export interface BlogCardProps {
-	metadata: BlogMeta;
+export interface ContentCardProps {
+	metadata: ContentMeta;
 	basePath?: string; // e.g., '/blog'
 	renderLink?: (href: string, children: React.ReactNode) => React.ReactNode;
 	className?: string;
@@ -12,7 +12,7 @@ export interface BlogCardProps {
 	showDate?: boolean;
 }
 
-export function BlogCard({
+export function ContentCard({
 	metadata,
 	basePath = '/blog',
 	renderLink,
@@ -20,7 +20,7 @@ export function BlogCard({
 	showCategory = true,
 	showReadingTime = true,
 	showDate = true,
-}: BlogCardProps) {
+}: ContentCardProps) {
 	const href = `${basePath}/${metadata.slug}`;
 	const defaultLink = (href: string, children: React.ReactNode) => <a href={href}>{children}</a>;
 	const Link = renderLink || defaultLink;

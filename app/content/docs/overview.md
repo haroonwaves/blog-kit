@@ -1,19 +1,19 @@
 ---
 title: Overview
 description:
-  A powerful, free toolkit for creating markdown-based blogs. Perfect for developers who want full
-  control over their blog.
+  A powerful, free toolkit for creating markdown-based content sites. Perfect for developers who
+  want full control over their blog, documentation, or portfolio.
 date: 2024-01-01
 ---
 
-## Build Your Professional Blog with Next.js & Blog Kit
+## Build Your Professional Site with Next.js & Blog Kit
 
 Blog Kit is a modern, Next.js-first toolkit designed to help you **build your own professional
-blog** with markdown in minutes. Whether you're creating a personal blog, documentation site, or
-content platform, Blog Kit provides all the essential tools you need to build a high-performance
-blog with minimal configuration.
+content site** with markdown in minutes. Whether you're creating a personal blog, documentation
+site, or content platform, Blog Kit provides all the essential tools you need to build a
+high-performance site with minimal configuration.
 
-**Perfect for developers, writers, and content creators** who want full control over their blog
+**Perfect for developers, writers, and content creators** who want full control over their content
 using the power of Next.js and React server components.
 
 ### Key Features
@@ -22,10 +22,10 @@ using the power of Next.js and React server components.
 
 - ✅ Parse markdown files with frontmatter (using
   [gray-matter](https://github.com/jonschlinkert/gray-matter))
-- ✅ Extract blog metadata (title, description, date, category)
+- ✅ Extract content metadata (title, description, date, category)
 - ✅ Calculate reading time automatically (using
   [reading-time](https://github.com/ngryman/reading-time))
-- ✅ Sort blogs by date (newest first)
+- ✅ Sort items by date (newest first)
 - ✅ TypeScript support with full type definitions
 - ✅ Zero dependencies on React or UI frameworks
 
@@ -40,10 +40,10 @@ using the power of Next.js and React server components.
 - ✅ Raw HTML rendering support (using [rehype-raw](https://github.com/rehypejs/rehype-raw))
 - ✅ Automatic heading IDs for anchor links (using
   [rehype-slug-custom-id](https://github.com/valeriangalliat/rehype-slug-custom-id))
-- ✅ Beautiful, stateless `BlogList` for high-performance rendering
+- ✅ Beautiful, stateless `ContentList` for high-performance rendering
 - ✅ Customizable `Filter` component with built-in search, categories, and results count
-- ✅ `useBlogs` hook and shared utilities for easy search/filter integration
-- ✅ Loading placeholders and responsive blog cards
+- ✅ `useContent` hook and shared utilities for easy search/filter integration
+- ✅ Loading placeholders and responsive content cards
 - ✅ Customizable styling with Tailwind CSS classes
 - ✅ TypeScript support with full type definitions
 - ✅ Work seamlessly with Next.js App Router and Server Components
@@ -62,19 +62,20 @@ Blog Kit is perfect for:
 ### Packages
 
 - **[@haroonwaves/blog-kit-core](https://www.npmjs.com/package/@haroonwaves/blog-kit-core)** - Core
-  utilities for parsing markdown blog files with frontmatter
+  utilities for parsing markdown files with frontmatter
 - **[@haroonwaves/blog-kit-react](https://www.npmjs.com/package/@haroonwaves/blog-kit-react)** -
-  React components and hooks for rendering blogs
+  React components and hooks for rendering content
 
 ### Live Demo
 
-[haroonwaves.github.io/blog](https://haroonwaves.github.io/blog) - A full blog built using Blog Kit.
+[blog-kit.haroonwaves.com](https://blog-kit.haroonwaves.com) - A full blog site built using Blog
+Kit.
 
 ### Getting Started
 
-Ready to build your blog? Get started in minutes:
+Ready to build your site? Get started in minutes:
 
-1. **[Getting Started](/docs/getting-started)** — Install, configure, and build your first blog
+1. **[Getting Started](/docs/getting-started)** — Install, configure, and build your first site.
 2. **[Guides](/docs/guides)** — Add search, dark mode, and customize components
 3. **[API Reference](/docs/api-reference)** — Complete reference for all functions and components
 

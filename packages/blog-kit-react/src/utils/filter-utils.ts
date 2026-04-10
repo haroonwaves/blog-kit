@@ -1,24 +1,24 @@
-import type { BlogMeta } from '../types';
+import type { ContentMeta } from '../types';
 
-export function filterBlogs(
-	blogs: BlogMeta[],
+export function filterContent(
+	items: ContentMeta[],
 	searchTerm: string = '',
 	selectedCategory: string | null = null
-): BlogMeta[] {
-	let filtered = blogs;
+): ContentMeta[] {
+	let filtered = items;
 
 	if (searchTerm) {
 		const lowerSearch = searchTerm.toLowerCase();
 		filtered = filtered.filter(
-			(blog) =>
-				(blog.title?.toLowerCase() || '').includes(lowerSearch) ||
-				(blog.description?.toLowerCase() || '').includes(lowerSearch)
+			(item) =>
+				(item.title?.toLowerCase() || '').includes(lowerSearch) ||
+				(item.description?.toLowerCase() || '').includes(lowerSearch)
 		);
 	}
 
 	if (selectedCategory) {
-		filtered = filtered.filter((blog) => {
-			const categories = blog.categories ?? [];
+		filtered = filtered.filter((item) => {
+			const categories = item.categories ?? [];
 			return categories.includes(selectedCategory);
 		});
 	}
@@ -26,6 +26,6 @@ export function filterBlogs(
 	return filtered;
 }
 
-export function getAvailableCategories(blogs: BlogMeta[]): string[] {
-	return Array.from(new Set(blogs.flatMap((blog) => blog.categories ?? [])));
+export function getAvailableCategories(items: ContentMeta[]): string[] {
+	return Array.from(new Set(items.flatMap((item) => item.categories ?? [])));
 }

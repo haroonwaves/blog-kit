@@ -1,9 +1,9 @@
 import { useState, useMemo } from 'react';
-import type { BlogMeta } from '../types';
+import type { ContentMeta } from '../types';
 import { useDebounce } from './useDebounce';
-import { filterBlogs, getAvailableCategories } from '../utils/filter-utils';
+import { filterContent, getAvailableCategories } from '../utils/filter-utils';
 
-export function useBlogs(blogsMeta: BlogMeta[]) {
+export function useContent(allContentMeta: ContentMeta[]) {
 	const [searchTerm, setSearchTerm] = useState('');
 	const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
@@ -11,13 +11,13 @@ export function useBlogs(blogsMeta: BlogMeta[]) {
 
 	// Compute filtered results using the pure utility
 	const metadata = useMemo(() => {
-		return filterBlogs(blogsMeta, debouncedSearchTerm, selectedCategory);
-	}, [blogsMeta, debouncedSearchTerm, selectedCategory]);
+		return filterContent(allContentMeta, debouncedSearchTerm, selectedCategory);
+	}, [allContentMeta, debouncedSearchTerm, selectedCategory]);
 
 	// Compute available categories
 	const categories = useMemo(() => {
-		return getAvailableCategories(blogsMeta);
-	}, [blogsMeta]);
+		return getAvailableCategories(allContentMeta);
+	}, [allContentMeta]);
 
 	return {
 		metadata,

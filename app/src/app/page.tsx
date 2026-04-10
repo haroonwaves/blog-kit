@@ -109,7 +109,7 @@ export default function HomePage() {
 						{/* CTA Buttons */}
 						<div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up delay-300">
 							<Link
-								href="/docs/overview"
+								href="/docs/getting-started"
 								className="group inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-4 text-lg font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition-all hover:shadow-xl hover:shadow-primary/30 hover:scale-105"
 							>
 								Get Started

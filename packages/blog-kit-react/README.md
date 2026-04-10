@@ -1,7 +1,7 @@
 # @haroonwaves/blog-kit-react
 
-React components and hooks for rendering markdown blogs. Includes blog renderer with syntax
-highlighting, blog cards, lists with built-in search, filtering, and customization.
+React components and hooks for rendering markdown content. Includes content renderer with syntax
+highlighting, content cards, lists with built-in search, filtering, and customization.
 
 ## Installation
 

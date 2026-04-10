@@ -68,8 +68,7 @@ Blog Kit is perfect for:
 
 ### Live Demo
 
-[blog-kit.haroonwaves.com](https://blog-kit.haroonwaves.com) - A full blog site built using Blog
-Kit.
+[haroonwaves.com/blog](https://haroonwaves.com/blog) - A full blog site built using Blog Kit.
 
 ### Getting Started
 

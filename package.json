@@ -1,6 +1,6 @@
 {
 	"name": "blog-kit",
-	"version": "1.4.0",
+	"version": "2.0.0",
 	"private": true,
 	"description": "The ultimate Next.js toolkit for building professional blog systems with markdown.",
 	"main": "index.js",

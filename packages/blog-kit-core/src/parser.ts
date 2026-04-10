@@ -13,10 +13,7 @@ import type { ContentMeta, Content, ContentConfig } from './types';
  * @returns Array of content metadata
  */
 export function getAllContentMeta(config: ContentConfig): ContentMeta[] {
-	const contentDirectory = path.join(
-		config.contentDirectory,
-		config.contentSubdirectory || 'blog'
-	);
+	const contentDirectory = path.join(config.contentDirectory, config.contentSubdirectory || 'blog');
 
 	if (!fs.existsSync(contentDirectory)) {
 		console.warn(`Content directory not found: ${contentDirectory}`);
@@ -58,10 +55,7 @@ export function getAllContentMeta(config: ContentConfig): ContentMeta[] {
  * @returns Content data or null if not found
  */
 export function getContent(slug: string, config: ContentConfig): Content | null {
-	const contentDirectory = path.join(
-		config.contentDirectory,
-		config.contentSubdirectory || 'blog'
-	);
+	const contentDirectory = path.join(config.contentDirectory, config.contentSubdirectory || 'blog');
 	const filePath = path.join(contentDirectory, `${slug}.md`);
 
 	if (!fs.existsSync(filePath)) {

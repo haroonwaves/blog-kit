@@ -1,7 +1,7 @@
 # @haroonwaves/blog-kit-core
 
-Core utilities for parsing markdown blog files with frontmatter. Extract metadata, calculate reading
-time, and manage blog content in Node and React applications.
+Core utilities for parsing markdown files with frontmatter. Extract metadata, calculate reading
+time, and manage content in Node and React applications.
 
 ## Installation
 
@@ -26,7 +26,7 @@ For complete documentation, API reference, and examples, please visit the
 ## Related Packages
 
 - [@haroonwaves/blog-kit-react](https://www.npmjs.com/package/@haroonwaves/blog-kit-react) - React
-  components for rendering blogs
+  components for rendering content
 
 ## License
 

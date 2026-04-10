@@ -8,7 +8,7 @@ export interface FilterProps {
 	selectedCategory: string | null;
 	setSelectedCategory: (selectedCategory: string | null) => void;
 	categories: string[];
-	postsCount?: number;
+	contentCount?: number;
 	className?: string;
 	placeholder?: string;
 	classNames?: {
@@ -17,7 +17,7 @@ export interface FilterProps {
 		pill?: string;
 		activePill?: string;
 		inactivePill?: string;
-		postsCount?: string;
+		contentCount?: string;
 	};
 }
 
@@ -27,9 +27,9 @@ export function Filter({
 	selectedCategory,
 	setSelectedCategory,
 	categories,
-	postsCount,
+	contentCount,
 	className = '',
-	placeholder = 'Search blogs...',
+	placeholder = 'Search content...',
 	classNames = {},
 }: FilterProps) {
 	// Consolidate styles to avoid JSX bloat and repetition
@@ -56,7 +56,7 @@ export function Filter({
 						/>
 					</svg>
 					<input
-						id="blog-search"
+						id="content-search"
 						type="search"
 						value={searchTerm}
 						onChange={(e) => setSearchTerm(e.target.value)}
@@ -89,12 +89,12 @@ export function Filter({
 				)}
 			</div>
 
-			{/* Posts Count */}
-			{postsCount !== undefined && (
+			{/* Content Count */}
+			{contentCount !== undefined && (
 				<p
-					className={`bk:text-[10px] bk:uppercase bk:tracking-wider bk:text-gray-400 bk:dark:text-gray-500 ${classNames.postsCount ?? ''}`}
+					className={`bk:text-[10px] bk:uppercase bk:tracking-wider bk:text-gray-400 bk:dark:text-gray-500 ${classNames.contentCount ?? ''}`}
 				>
-					{postsCount} {postsCount === 1 ? 'post' : 'posts'} found
+					{contentCount} {contentCount === 1 ? 'item' : 'items'} found
 				</p>
 			)}
 		</div>

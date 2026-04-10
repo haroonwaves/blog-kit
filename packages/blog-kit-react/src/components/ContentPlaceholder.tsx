@@ -1,9 +1,9 @@
-export interface BlogPlaceholderProps {
+export interface ContentPlaceholderProps {
 	count?: number;
 	className?: string;
 }
 
-export function BlogPlaceholder({ count = 3, className = '' }: BlogPlaceholderProps) {
+export function ContentPlaceholder({ count = 3, className = '' }: ContentPlaceholderProps) {
 	return (
 		<div className={`${className}`}>
 			{Array.from({ length: count }).map((_, i) => (

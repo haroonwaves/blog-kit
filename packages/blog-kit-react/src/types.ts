@@ -1,4 +1,4 @@
-export interface BlogMeta {
+export interface ContentMeta {
 	title: string;
 	description: string;
 	date: string;
@@ -7,12 +7,12 @@ export interface BlogMeta {
 	readingTime: string;
 }
 
-export interface Blog {
-	metadata: BlogMeta;
-	content: string;
+export interface Content {
+	metadata: ContentMeta;
+	body: string;
 }
 
-export interface BlogConfig {
+export interface ContentConfig {
 	contentDirectory: string;
-	blogSubdirectory?: string; // defaults to 'blog'
+	contentSubdirectory?: string; // defaults to 'blog'
 }

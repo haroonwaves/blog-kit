@@ -8,8 +8,8 @@ date: 2024-01-02
 
 ## Getting Started
 
-This guide walks you from zero to a fully working blog. By the end, you'll have a blog list page and
-individual blog post pages — all statically generated for maximum performance.
+This guide walks you from zero to a fully working content site. By the end, you'll have a content
+list page and individual content pages — all statically generated for maximum performance.
 
 ### 1. Install the Packages
 
@@ -58,9 +58,9 @@ your-project/
 └── src/
     └── app/
         ├── blog/
-        │   ├── page.tsx          ← Blog list page
+        │   ├── page.tsx          ← Content list page
         │   └── [slug]/
-        │       └── page.tsx      ← Blog post page
+        │       └── page.tsx      ← Content item page
         └── layout.tsx
 ```
 
@@ -83,25 +83,25 @@ Welcome to my blog! This is my first post built with Blog Kit.
 
 **Required frontmatter fields:**
 
-- `title` (string): The blog post title
+- `title` (string): The content title
 - `description` (string): A brief description/summary
 - `date` (string): Publication date (ISO format recommended: YYYY-MM-DD)
 
 **Optional frontmatter fields:**
 
-- `categories` (string[]): Array of categories/tags for the post
+- `categories` (string[]): Array of categories/tags for the content
 
-### 4. Create the Blog Configuration
+### 4. Create the Configuration
 
-Define your blog configuration once and reuse it across pages:
+Define your configuration once and reuse it across pages:
 
 ```ts
-// lib/blog.ts (or wherever you keep shared config)
-import type { BlogConfig } from '@haroonwaves/blog-kit-core';
+// lib/content.ts (or wherever you keep shared config)
+import type { ContentConfig } from '@haroonwaves/blog-kit-core';
 
-export const blogConfig: BlogConfig = {
+export const contentConfig: ContentConfig = {
 	contentDirectory: process.cwd(), // The project root
-	blogSubdirectory: 'content/blog', // Path to your markdown files
+	contentSubdirectory: 'content/blog', // Path to your markdown files
 };
 ```
 
@@ -109,16 +109,16 @@ export const blogConfig: BlogConfig = {
 
 ```tsx
 // app/blog/page.tsx
-import { getAllBlogsMeta } from '@haroonwaves/blog-kit-core';
-import { BlogList } from '@haroonwaves/blog-kit-react';
+import { getAllContentMeta } from '@haroonwaves/blog-kit-core';
+import { ContentList } from '@haroonwaves/blog-kit-react';
 import Link from 'next/link';
-import { blogConfig } from '@/lib/blog';
+import { contentConfig } from '@/lib/content';
 
 export default function BlogPage() {
-	const blogsMeta = getAllBlogsMeta(blogConfig);
+	const blogsMeta = getAllContentMeta(contentConfig);
 
 	return (
-		<BlogList
+		<ContentList
 			metadata={blogsMeta}
 			title="Blogs"
 			description="Welcome to my blog built with Blog Kit."
@@ -129,44 +129,44 @@ export default function BlogPage() {
 }
 ```
 
-That's it — `BlogList` renders a responsive list of cards with category badges, reading time, and
+That's it — `ContentList` renders a responsive list of cards with category badges, reading time, and
 dates. No extra configuration needed.
 
 ### 6. Build the Blog Post Page
 
 ```tsx
 // app/blog/[slug]/page.tsx
-import { getAllBlogsMeta, getBlog } from '@haroonwaves/blog-kit-core';
-import { BlogRenderer } from '@haroonwaves/blog-kit-react';
+import { getAllContentMeta, getContent } from '@haroonwaves/blog-kit-core';
+import { ContentRenderer } from '@haroonwaves/blog-kit-react';
 import { notFound } from 'next/navigation';
-import { blogConfig } from '@/lib/blog';
+import { contentConfig } from '@/lib/content';
 
 export function generateStaticParams() {
-	const blogsMeta = getAllBlogsMeta(blogConfig);
+	const blogsMeta = getAllContentMeta(contentConfig);
 	return blogsMeta.map((meta) => ({ slug: meta.slug }));
 }
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
 	const { slug } = await params;
 
-	const blog = getBlog(slug, blogConfig);
+	const blog = getContent(slug, contentConfig);
 
 	if (!blog) notFound();
 
 	return (
 		<article>
-			<BlogRenderer content={blog.content} metadata={blog.metadata} />
+			<ContentRenderer body={blog.body} metadata={blog.metadata} />
 		</article>
 	);
 }
 ```
 
-`BlogRenderer` automatically handles markdown rendering with syntax highlighting, GFM support,
+`ContentRenderer` automatically handles markdown rendering with syntax highlighting, GFM support,
 heading anchor links, and beautiful typography — all out of the box.
 
 ### Next Steps
 
-Your blog is now fully functional! Here's what to explore next:
+Your site is now fully functional! Here's what to explore next:
 
 - **[Guides](/docs/guides)** — Add search/filtering, dark mode, and customize component styling
 - **[API Reference](/docs/api-reference)** — Complete reference for all functions, components,

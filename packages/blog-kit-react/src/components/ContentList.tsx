@@ -1,16 +1,16 @@
 import React from 'react';
-import { BlogCard, type BlogCardProps } from './BlogCard';
-import type { BlogMeta } from '../types';
+import { ContentCard, type ContentCardProps } from './ContentCard';
+import type { ContentMeta } from '../types';
 
-export interface BlogListProps {
-	metadata: BlogMeta[];
+export interface ContentListProps {
+	metadata: ContentMeta[];
 	title?: string;
 	description?: string;
 	basePath?: string;
-	renderLink?: BlogCardProps['renderLink'];
+	renderLink?: ContentCardProps['renderLink'];
 	className?: string;
 	emptyMessage?: string;
-	cardProps?: Omit<BlogCardProps, 'metadata' | 'basePath' | 'renderLink'>;
+	cardProps?: Omit<ContentCardProps, 'metadata' | 'basePath' | 'renderLink'>;
 	classNames?: {
 		// cardContainer: string;
 		title?: string;
@@ -19,20 +19,20 @@ export interface BlogListProps {
 }
 
 /**
- * A pure, stateless BlogList component that renders a list of blog cards.
+ * A pure, stateless ContentList component that renders a list of content cards.
  * Accepts metadata and renders it exactly as provided.
  */
-export function BlogList({
+export function ContentList({
 	metadata,
 	title,
 	description,
 	basePath = '/blog',
 	renderLink,
 	className = '',
-	emptyMessage = 'No blog posts found.',
+	emptyMessage = 'No content found.',
 	cardProps,
 	classNames = {},
-}: BlogListProps) {
+}: ContentListProps) {
 	return (
 		<div className="bk:w-full">
 			{title && (
@@ -60,7 +60,7 @@ export function BlogList({
 			) : (
 				<div className={`bk:flex bk:flex-col bk:gap-6 ${className}`}>
 					{metadata.map((meta) => (
-						<BlogCard
+						<ContentCard
 							key={meta.slug}
 							metadata={meta}
 							basePath={basePath}

@@ -2,31 +2,31 @@
 title: Guides
 description:
   Learn how to add search and filtering, customize component styling, and set up dark mode for your
-  Blog Kit blog.
+  Blog Kit content site.
 date: 2024-01-04
 ---
 
 ## Guides
 
-Practical guides for common tasks. If you haven't set up your blog yet, start with the
+Practical guides for common tasks. If you haven't set up your site yet, start with the
 [Getting Started](/docs/getting-started) guide first.
 
 ---
 
 ### Adding Search & Filtering
 
-The `useBlogs` hook provides instant client-side search and category filtering. Pair it with the
-`Filter` and `BlogList` components for a complete interactive blog list.
+The `useContent` hook provides instant client-side search and category filtering. Pair it with the
+`Filter` and `ContentList` components for a complete interactive content list.
 
 ```tsx
 'use client';
 
-import { BlogList, Filter, useBlogs } from '@haroonwaves/blog-kit-react';
-import type { BlogMeta } from '@haroonwaves/blog-kit-react';
+import { ContentList, Filter, useContent } from '@haroonwaves/blog-kit-react';
+import type { ContentMeta } from '@haroonwaves/blog-kit-react';
 
-export default function BlogListPage({ blogsMeta }: { blogsMeta: BlogMeta[] }) {
+export default function ContentListPage({ blogsMeta }: { blogsMeta: ContentMeta[] }) {
 	const { metadata, searchTerm, setSearchTerm, selectedCategory, setSelectedCategory, categories } =
-		useBlogs(blogsMeta);
+		useContent(blogsMeta);
 
 	return (
 		<div className="max-w-4xl mx-auto px-4 py-8">
@@ -36,10 +36,10 @@ export default function BlogListPage({ blogsMeta }: { blogsMeta: BlogMeta[] }) {
 				selectedCategory={selectedCategory}
 				setSelectedCategory={setSelectedCategory}
 				categories={categories}
-				postsCount={metadata.length}
+				contentCount={metadata.length}
 			/>
 
-			<BlogList metadata={metadata} />
+			<ContentList metadata={metadata} />
 		</div>
 	);
 }
@@ -49,54 +49,54 @@ Then pass metadata from a server component:
 
 ```tsx
 // app/blog/page.tsx (Server Component)
-import { getAllBlogsMeta } from '@haroonwaves/blog-kit-core';
-import { blogConfig } from '@/lib/blog';
-import BlogListPage from './blog-list-page';
+import { getAllContentMeta } from '@haroonwaves/blog-kit-core';
+import { contentConfig } from '@/lib/content';
+import ContentListPage from './content-list-page';
 
 export default function BlogPage() {
-	const blogsMeta = getAllBlogsMeta(blogConfig);
-	return <BlogListPage blogsMeta={blogsMeta} />;
+	const blogsMeta = getAllContentMeta(contentConfig);
+	return <ContentListPage blogsMeta={blogsMeta} />;
 }
 ```
 
 > [!TIP] **Which rendering strategy should I use?**
 >
-> 1. **Client-Side Filtering (< 500 posts)**: Keep your blog list page static (SSG) but use the
->    `useBlogs` hook to handle searching. This makes search instant and keeps your site 100% static.
->    **This is the recommended approach for most blogs.**
-> 2. **Dynamic Filtering (SSR)**: Only recommended if you have thousands of blog posts and want to
->    avoid sending all metadata to the user's browser.
-> 3. **Static Rendering (SSG)**: For individual blog post pages, always use SSG via
+> 1. **Client-Side Filtering (< 500 items)**: Keep your content list page static (SSG) but use the
+>    `useContent` hook to handle searching. This makes search instant and keeps your site 100%
+>    static. **This is the recommended approach for most sites.**
+> 2. **Dynamic Filtering (SSR)**: Only recommended if you have thousands of items and want to avoid
+>    sending all metadata to the user's browser.
+> 3. **Static Rendering (SSG)**: For individual content pages, always use SSG via
 >    `generateStaticParams()` for maximum speed.
 
 #### Server-Side Filtering
 
-If you prefer to filter on the server (e.g., for very large blogs), you can use the `filterBlogs`
+If you prefer to filter on the server (e.g., for very large sites), you can use the `filterContent`
 and `getAvailableCategories` utility functions directly:
 
 ```tsx
-import { filterBlogs, getAvailableCategories } from '@haroonwaves/blog-kit-react';
-import { getAllBlogsMeta } from '@haroonwaves/blog-kit-core';
+import { filterContent, getAvailableCategories } from '@haroonwaves/blog-kit-react';
+import { getAllContentMeta } from '@haroonwaves/blog-kit-core';
 
-const allBlogs = getAllBlogsMeta(blogConfig);
+const allBlogs = getAllContentMeta(contentConfig);
 const categories = getAvailableCategories(allBlogs);
-const filtered = filterBlogs(allBlogs, searchTerm, selectedCategory);
+const filtered = filterContent(allBlogs, searchTerm, selectedCategory);
 ```
 
 ---
 
 ### Customizing Components
 
-#### Overriding BlogRenderer Elements
+#### Overriding ContentRenderer Elements
 
-The `BlogRenderer` renders markdown using styled HTML elements. You can override any element by
+The `ContentRenderer` renders markdown using styled HTML elements. You can override any element by
 passing custom components through the `components` prop:
 
 ```tsx
-import { BlogRenderer } from '@haroonwaves/blog-kit-react';
+import { ContentRenderer } from '@haroonwaves/blog-kit-react';
 import type { ComponentProps } from 'react';
 
-function BlogPost({ content, metadata }) {
+function BlogPost({ body, metadata }) {
 	const customComponents = {
 		// Custom blockquote with a different style
 		blockquote: (props: ComponentProps<'blockquote'>) => (
@@ -112,7 +112,7 @@ function BlogPost({ content, metadata }) {
 		),
 	};
 
-	return <BlogRenderer content={content} metadata={metadata} components={customComponents} />;
+	return <ContentRenderer body={body} metadata={metadata} components={customComponents} />;
 }
 ```
 
@@ -125,10 +125,10 @@ You can override any HTML element: `h1`–`h6`, `p`, `a`, `blockquote`, `code`, 
 Several components accept a `classNames` prop for fine-grained style overrides without replacing the
 entire component:
 
-**BlogList:**
+**ContentList:**
 
 ```tsx
-<BlogList
+<ContentList
 	metadata={blogsMeta}
 	classNames={{
 		title: 'text-blue-600',
@@ -148,20 +148,20 @@ entire component:
 		pill: 'rounded-full',
 		activePill: 'bg-blue-600 text-white',
 		inactivePill: 'bg-gray-100',
-		postsCount: 'text-blue-400',
+		contentCount: 'text-blue-400',
 	}}
 />
 ```
 
 #### Loading Placeholders
 
-Use `BlogPlaceholder` to show skeleton cards while your data loads:
+Use `ContentPlaceholder` to show skeleton cards while your data loads:
 
 ```tsx
-import { BlogPlaceholder } from '@haroonwaves/blog-kit-react';
+import { ContentPlaceholder } from '@haroonwaves/blog-kit-react';
 
 function LoadingState() {
-	return <BlogPlaceholder count={3} />;
+	return <ContentPlaceholder count={3} />;
 }
 ```
 

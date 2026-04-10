@@ -18,50 +18,56 @@ The complete reference for everything exported by Blog Kit. For tutorials and us
 All core functions require Node.js (`fs` module) and only work in server environments (Next.js
 SSR/SSG, Node.js scripts, etc.).
 
-#### `getAllBlogsMeta(config: BlogConfig): BlogMeta[]`
+#### `getAllContentMeta(config: ContentConfig): ContentMeta[]`
 
-Returns an array of all blog metadata sorted by date (newest first).
+Returns an array of all content metadata sorted by date (newest first).
 
 **Parameters:**
 
 - `config.contentDirectory` (string): Path to your content directory
-- `config.blogSubdirectory` (string, optional): Subdirectory for blog files (defaults to `'blog'`)
+- `config.contentSubdirectory` (string, optional): Subdirectory for content files (defaults to
+  `'blog'`)
 
-**Returns:** Array of `BlogMeta` objects
+**Returns:** Array of `ContentMeta` objects
 
 ```typescript
-const blogsMeta = getAllBlogsMeta({
+import { getAllContentMeta } from '@haroonwaves/blog-kit-core';
+
+const docsMeta = getAllContentMeta({
 	contentDirectory: process.cwd(),
-	blogSubdirectory: 'content/blog',
+	contentSubdirectory: 'content/docs',
 });
 
-blogsMeta.forEach((meta) => {
+docsMeta.forEach((meta) => {
 	console.log(meta.title, meta.slug, meta.readingTime);
 });
 ```
 
-#### `getBlog(slug: string, config: BlogConfig): Blog | null`
+#### `getContent(slug: string, config: ContentConfig): Content | null`
 
-Returns the full blog data (metadata + content) for a specific slug.
+Returns the full content data (metadata + body) for a specific slug.
 
 **Parameters:**
 
-- `slug` (string): The blog post slug (filename without `.md`)
+- `slug` (string): The content slug (filename without `.md`)
 - `config.contentDirectory` (string): Path to your content directory
-- `config.blogSubdirectory` (string, optional): Subdirectory for blog files (defaults to `'blog'`)
+- `config.contentSubdirectory` (string, optional): Subdirectory for content files (defaults to
+  `'blog'`)
 
-**Returns:** `Blog` object or `null` if not found
+**Returns:** `Content` object or `null` if not found
 
 ```typescript
-const blog = getBlog('my-blog-post', {
+import { getContent } from '@haroonwaves/blog-kit-core';
+
+const doc = getContent('getting-started', {
 	contentDirectory: process.cwd(),
-	blogSubdirectory: 'content/blog',
+	contentSubdirectory: 'content/docs',
 });
 
-if (blog) {
-	console.log(blog.metadata.title);
-	console.log(blog.metadata.readingTime);
-	console.log(blog.content);
+if (doc) {
+	console.log(doc.metadata.title);
+	console.log(doc.metadata.readingTime);
+	console.log(doc.body);
 }
 ```
 
@@ -71,33 +77,33 @@ if (blog) {
 
 #### Components
 
-##### `BlogList`
+##### `ContentList`
 
-A stateless component that renders a list of blog cards. Works with both server-side and client-side
-rendering.
+A stateless component that renders a list of content cards. Works with both server-side and
+client-side rendering.
 
-| Prop           | Type                                                            | Default                  | Description                                |
-| -------------- | --------------------------------------------------------------- | ------------------------ | ------------------------------------------ |
-| `metadata`     | `BlogMeta[]`                                                    | _required_               | Array of blog metadata to render           |
-| `title`        | `string`                                                        | —                        | Page title (rendered as h1)                |
-| `description`  | `string`                                                        | —                        | Page description                           |
-| `basePath`     | `string`                                                        | `'/blog'`                | Base URL for blog post links               |
-| `renderLink`   | `(href, children) => ReactNode`                                 | —                        | Custom link renderer (e.g. Next.js `Link`) |
-| `className`    | `string`                                                        | —                        | CSS class for the card container           |
-| `emptyMessage` | `string`                                                        | `'No blog posts found.'` | Message when list is empty                 |
-| `cardProps`    | `Omit<BlogCardProps, 'metadata' \| 'basePath' \| 'renderLink'>` | —                        | Props forwarded to each `BlogCard`         |
-| `classNames`   | `{ title?, description? }`                                      | —                        | CSS overrides for title and description    |
+| Prop           | Type                                                               | Default               | Description                                |
+| -------------- | ------------------------------------------------------------------ | --------------------- | ------------------------------------------ |
+| `metadata`     | `ContentMeta[]`                                                    | _required_            | Array of content metadata to render        |
+| `title`        | `string`                                                           | —                     | Page title (rendered as h1)                |
+| `description`  | `string`                                                           | —                     | Page description                           |
+| `basePath`     | `string`                                                           | `'/blog'`             | Base URL for content links                 |
+| `renderLink`   | `(href, children) => ReactNode`                                    | —                     | Custom link renderer (e.g. Next.js `Link`) |
+| `className`    | `string`                                                           | —                     | CSS class for the card container           |
+| `emptyMessage` | `string`                                                           | `'No content found.'` | Message when list is empty                 |
+| `cardProps`    | `Omit<ContentCardProps, 'metadata' \| 'basePath' \| 'renderLink'>` | —                     | Props forwarded to each `ContentCard`      |
+| `classNames`   | `{ title?, description? }`                                         | —                     | CSS overrides for title and description    |
 
 ---
 
-##### `BlogCard`
+##### `ContentCard`
 
-Renders a single blog post card with category badges, reading time, and date.
+Renders a single content item card with category badges, reading time, and date.
 
 | Prop              | Type                            | Default    | Description                                |
 | ----------------- | ------------------------------- | ---------- | ------------------------------------------ |
-| `metadata`        | `BlogMeta`                      | _required_ | Blog metadata object                       |
-| `basePath`        | `string`                        | `'/blog'`  | Base path for blog links                   |
+| `metadata`        | `ContentMeta`                   | _required_ | Content metadata object                    |
+| `basePath`        | `string`                        | `'/blog'`  | Base path for content links                |
 | `renderLink`      | `(href, children) => ReactNode` | —          | Custom link renderer (e.g. Next.js `Link`) |
 | `className`       | `string`                        | —          | Additional CSS classes                     |
 | `showCategory`    | `boolean`                       | `true`     | Show category badge                        |
@@ -106,15 +112,15 @@ Renders a single blog post card with category badges, reading time, and date.
 
 ---
 
-##### `BlogRenderer`
+##### `ContentRenderer`
 
 Renders markdown content with syntax highlighting (Prism), GFM support, heading anchor links, and
 styled typography. Supports custom component overrides.
 
 | Prop              | Type                            | Default    | Description                             |
 | ----------------- | ------------------------------- | ---------- | --------------------------------------- |
-| `content`         | `string`                        | _required_ | Markdown content to render              |
-| `metadata`        | `BlogMeta`                      | _required_ | Blog metadata object                    |
+| `body`            | `string`                        | _required_ | Markdown content to render              |
+| `metadata`        | `ContentMeta`                   | _required_ | Content metadata object                 |
 | `className`       | `string`                        | —          | Additional CSS classes                  |
 | `components`      | `Record<string, ComponentType>` | —          | Override default HTML element renderers |
 | `showCategory`    | `boolean`                       | `true`     | Show category badge                     |
@@ -130,24 +136,24 @@ styled typography. Supports custom component overrides.
 
 A client component for searching and category filtering.
 
-| Prop                  | Type                            | Default             | Description                       |
-| --------------------- | ------------------------------- | ------------------- | --------------------------------- |
-| `searchTerm`          | `string`                        | _required_          | Current search input value        |
-| `setSearchTerm`       | `(term: string) => void`        | _required_          | Callback for search input changes |
-| `selectedCategory`    | `string \| null`                | _required_          | Currently selected category       |
-| `setSelectedCategory` | `(cat: string \| null) => void` | _required_          | Callback for category changes     |
-| `categories`          | `string[]`                      | _required_          | List of available category labels |
-| `postsCount`          | `number`                        | —                   | Number of results to display      |
-| `placeholder`         | `string`                        | `'Search blogs...'` | Search input placeholder text     |
-| `className`           | `string`                        | —                   | Container CSS class               |
-| `classNames`          | `object`                        | —                   | CSS overrides (see below)         |
+| Prop                  | Type                            | Default               | Description                       |
+| --------------------- | ------------------------------- | --------------------- | --------------------------------- |
+| `searchTerm`          | `string`                        | _required_            | Current search input value        |
+| `setSearchTerm`       | `(term: string) => void`        | _required_            | Callback for search input changes |
+| `selectedCategory`    | `string \| null`                | _required_            | Currently selected category       |
+| `setSelectedCategory` | `(cat: string \| null) => void` | _required_            | Callback for category changes     |
+| `categories`          | `string[]`                      | _required_            | List of available category labels |
+| `contentCount`        | `number`                        | —                     | Number of results to display      |
+| `placeholder`         | `string`                        | `'Search content...'` | Search input placeholder text     |
+| `className`           | `string`                        | —                     | Container CSS class               |
+| `classNames`          | `object`                        | —                     | CSS overrides (see below)         |
 
 **`classNames` keys:** `input`, `categoryContainer`, `pill`, `activePill`, `inactivePill`,
-`postsCount`
+`contentCount`
 
 ---
 
-##### `BlogPlaceholder`
+##### `ContentPlaceholder`
 
 Renders animated skeleton loading cards.
 
@@ -160,38 +166,38 @@ Renders animated skeleton loading cards.
 
 #### Hooks
 
-##### `useBlogs(blogsMeta: BlogMeta[])`
+##### `useContent(allContentMeta: ContentMeta[])`
 
 A client-side hook that provides search and category filter state management with debounced search
 (500ms).
 
 **Parameters:**
 
-- `blogsMeta` (BlogMeta[]): Array of blog metadata to filter
+- `allContentMeta` (ContentMeta[]): Array of content metadata to filter
 
 **Returns:**
 
-| Field                 | Type                            | Description                            |
-| --------------------- | ------------------------------- | -------------------------------------- |
-| `metadata`            | `BlogMeta[]`                    | Filtered blog posts                    |
-| `searchTerm`          | `string`                        | Current search input value             |
-| `setSearchTerm`       | `(term: string) => void`        | Update the search term                 |
-| `selectedCategory`    | `string \| null`                | Currently selected category            |
-| `setSelectedCategory` | `(cat: string \| null) => void` | Update selected category               |
-| `categories`          | `string[]`                      | All unique categories from input blogs |
+| Field                 | Type                            | Description                      |
+| --------------------- | ------------------------------- | -------------------------------- |
+| `metadata`            | `ContentMeta[]`                 | Filtered content items           |
+| `searchTerm`          | `string`                        | Current search input value       |
+| `setSearchTerm`       | `(term: string) => void`        | Update the search term           |
+| `selectedCategory`    | `string \| null`                | Currently selected category      |
+| `setSelectedCategory` | `(cat: string \| null) => void` | Update selected category         |
+| `categories`          | `string[]`                      | All unique categories from input |
 
 ---
 
 #### Utility Functions
 
-##### `filterBlogs(blogs: BlogMeta[], searchTerm?: string, selectedCategory?: string | null): BlogMeta[]`
+##### `filterContent(items: ContentMeta[], searchTerm?: string, selectedCategory?: string | null): ContentMeta[]`
 
-Pure utility to filter blogs by search term (matches title and description) and/or category. Useful
-for server-side filtering or custom implementations outside of `useBlogs`.
+Pure utility to filter content by search term (matches title and description) and/or category.
+Useful for server-side filtering or custom implementations outside of `useContent`.
 
-##### `getAvailableCategories(blogs: BlogMeta[]): string[]`
+##### `getAvailableCategories(items: ContentMeta[]): string[]`
 
-Returns a deduplicated array of all categories across the provided blog metadata.
+Returns a deduplicated array of all categories across the provided content metadata.
 
 ---
 
@@ -200,7 +206,7 @@ Returns a deduplicated array of all categories across the provided blog metadata
 All types are exported from both `@haroonwaves/blog-kit-core` and `@haroonwaves/blog-kit-react`.
 
 ```typescript
-interface BlogMeta {
+interface ContentMeta {
 	title: string;
 	description: string;
 	date: string;
@@ -209,13 +215,13 @@ interface BlogMeta {
 	readingTime: string;
 }
 
-interface Blog {
-	metadata: BlogMeta;
-	content: string;
+interface Content {
+	metadata: ContentMeta;
+	body: string;
 }
 
-interface BlogConfig {
+interface ContentConfig {
 	contentDirectory: string;
-	blogSubdirectory?: string; // defaults to 'blog'
+	contentSubdirectory?: string; // defaults to 'blog'
 }
 ```

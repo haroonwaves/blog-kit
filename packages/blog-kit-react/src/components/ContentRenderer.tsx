@@ -4,14 +4,14 @@ import remarkGfm from 'remark-gfm';
 import rehypePrismPlus from 'rehype-prism-plus';
 import rehypeRaw from 'rehype-raw';
 import rehypeSlugCustomId from 'rehype-slug-custom-id';
-import type { BlogMeta } from '../types';
+import type { ContentMeta } from '../types';
 
 import '../prism.css';
 import { Badge } from './Badge';
 
-export interface BlogRendererProps {
-	content: string;
-	metadata: BlogMeta;
+export interface ContentRendererProps {
+	body: string;
+	metadata: ContentMeta;
 	className?: string;
 	components?: Record<string, React.ComponentType<any>>;
 	showCategory?: boolean;
@@ -185,15 +185,15 @@ const defaultComponents = {
 	),
 };
 
-export function BlogRenderer({
-	content,
+export function ContentRenderer({
+	body,
 	metadata,
 	className = '',
 	components,
 	showCategory = true,
 	showReadingTime = true,
 	showDate = true,
-}: BlogRendererProps) {
+}: ContentRendererProps) {
 	const mergedComponents = { ...defaultComponents, ...components };
 
 	return (
@@ -231,7 +231,7 @@ export function BlogRenderer({
 					rehypePlugins={[rehypeRaw, rehypePrismPlus, rehypeSlugCustomId]}
 					components={mergedComponents}
 				>
-					{content}
+					{body}
 				</ReactMarkdown>
 			</div>
 		</>

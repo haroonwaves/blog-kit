@@ -22,7 +22,7 @@ export function DocsSidebar() {
 			{/* Mobile Menu Button */}
 			<button
 				onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-				className="fixed top-20 left-4 z-50 lg:hidden p-2 rounded-lg bg-background/80 backdrop-blur-sm border border-border/40 shadow-lg hover:bg-muted/50 transition-colors"
+				className="fixed top-3 left-3 z-70 lg:hidden p-2.5 rounded-xl bg-background/50 backdrop-blur-md border border-border/50 shadow-sm hover:bg-muted/80 hover:scale-105 active:scale-95 transition-all duration-300"
 				aria-label="Toggle menu"
 			>
 				{isMobileMenuOpen ? (

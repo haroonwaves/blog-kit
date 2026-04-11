@@ -1,5 +1,4 @@
 import { DocsSidebar } from '@/components/docs-sidebar';
-import { ScrollToTop } from '@/components/scroll-to-top';
 
 export default function DocsLayout({ children }: { children: React.ReactNode }) {
 	return (
@@ -12,8 +11,6 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
 				<main className="relative mx-auto max-w-7xl px-4 lg:px-8 py-10 lg:py-5 ">
 					<div>{children}</div>
 				</main>
-
-				<ScrollToTop />
 			</div>
 		</div>
 	);

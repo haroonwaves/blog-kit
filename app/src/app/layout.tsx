@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import { ThemeProvider } from '@/components/theme-provider';
 import Header from '@/app/header';
+import { BlogKitMarketing } from '@/components/blog-kit-marketing';
 
 import '@haroonwaves/blog-kit-react/dist/index.css'; // For Prism styles
 import '@haroonwaves/blog-kit-react/dist/style.css'; // For Component styles
@@ -115,6 +116,7 @@ export default function RootLayout({
 				>
 					<Header />
 					{children}
+					<BlogKitMarketing />
 				</ThemeProvider>
 			</body>
 		</html>

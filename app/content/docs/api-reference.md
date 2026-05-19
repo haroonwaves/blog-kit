@@ -164,6 +164,18 @@ Renders animated skeleton loading cards.
 
 ---
 
+##### `ContentLayout`
+
+A full-screen layout wrapper that applies standard light mode and dark mode background colors to
+keep theme backgrounds consistent.
+
+| Prop        | Type              | Default    | Description                            |
+| ----------- | ----------------- | ---------- | -------------------------------------- |
+| `children`  | `React.ReactNode` | _required_ | The components or page content to wrap |
+| `className` | `string`          | —          | Additional CSS classes                 |
+
+---
+
 #### Hooks
 
 ##### `useContent(allContentMeta: ContentMeta[])`

@@ -37,7 +37,7 @@ export function ContentList({
 		<div className="bk:w-full">
 			{title && (
 				<h1
-					className={`bk:text-4xl bk:font-bold bk:mb-4 bk:mt-8 bk:text-gray-800 bk:dark:text-gray-100 ${classNames.title ?? ''}`}
+					className={`bk:text-4xl bk:font-bold bk:mb-4 bk:mt-8 bk:text-neutral-800 bk:dark:text-neutral-100 ${classNames.title ?? ''}`}
 				>
 					{title}
 				</h1>
@@ -45,7 +45,7 @@ export function ContentList({
 
 			{description && (
 				<p
-					className={`bk:text-gray-600 bk:dark:text-gray-400 bk:mb-8 ${classNames.description ?? ''}`}
+					className={`bk:text-neutral-600 bk:dark:text-neutral-400 bk:mb-8 ${classNames.description ?? ''}`}
 				>
 					{description}
 				</p>
@@ -53,7 +53,7 @@ export function ContentList({
 
 			{metadata.length === 0 ? (
 				<div
-					className={`bk:text-center bk:text-gray-500 bk:dark:text-gray-400 bk:py-12 ${className}`}
+					className={`bk:text-center bk:text-neutral-500 bk:dark:text-neutral-400 bk:py-12 ${className}`}
 				>
 					{emptyMessage}
 				</div>

@@ -22,60 +22,60 @@ export interface ContentRendererProps {
 const defaultComponents = {
 	h1: (props: ComponentProps<'h1'>) => (
 		<h1
-			className="bk:mt-10 bk:first:mt-0 bk:mb-5 bk:text-3xl bk:md:text-4xl bk:font-semibold bk:tracking-tight bk:text-gray-800 bk:dark:text-gray-200"
+			className="bk:mt-10 bk:first:mt-0 bk:mb-5 bk:text-3xl bk:md:text-4xl bk:font-semibold bk:tracking-tight bk:text-neutral-800 bk:dark:text-neutral-200"
 			{...props}
 		/>
 	),
 
 	h2: (props: ComponentProps<'h2'>) => (
 		<h2
-			className="bk:mt-8 bk:first:mt-0 bk:mb-4 bk:text-2xl bk:md:text-3xl bk:font-semibold bk:tracking-tight bk:text-gray-800 bk:dark:text-gray-200"
+			className="bk:mt-8 bk:first:mt-0 bk:mb-4 bk:text-2xl bk:md:text-3xl bk:font-semibold bk:tracking-tight bk:text-neutral-800 bk:dark:text-neutral-200"
 			{...props}
 		/>
 	),
 
 	h3: (props: ComponentProps<'h3'>) => (
 		<h3
-			className="bk:mt-6 bk:mb-4 bk:first:mt-0 bk:text-xl bk:md:text-2xl bk:font-semibold bk:text-gray-800 bk:dark:text-gray-200"
+			className="bk:mt-6 bk:mb-4 bk:first:mt-0 bk:text-xl bk:md:text-2xl bk:font-semibold bk:text-neutral-800 bk:dark:text-neutral-200"
 			{...props}
 		/>
 	),
 
 	h4: (props: ComponentProps<'h4'>) => (
 		<h4
-			className="bk:mt-5 bk:mb-3 bk:first:mt-0 bk:text-lg bk:font-semibold bk:text-gray-800 bk:dark:text-gray-200"
+			className="bk:mt-5 bk:mb-3 bk:first:mt-0 bk:text-lg bk:font-semibold bk:text-neutral-800 bk:dark:text-neutral-200"
 			{...props}
 		/>
 	),
 
 	h5: (props: ComponentProps<'h5'>) => (
 		<h5
-			className="bk:mt-4 bk:mb-2 bk:first:mt-0 bk:text-base bk:font-semibold bk:text-gray-700 bk:dark:text-gray-200"
+			className="bk:mt-4 bk:mb-2 bk:first:mt-0 bk:text-base bk:font-semibold bk:text-neutral-700 bk:dark:text-neutral-200"
 			{...props}
 		/>
 	),
 
 	h6: (props: ComponentProps<'h6'>) => (
 		<h6
-			className="bk:mt-4 bk:mb-2 bk:text-sm bk:first:mt-0 bk:font-semibold bk:uppercase bk:tracking-wide bk:text-gray-600 bk:dark:text-gray-300"
+			className="bk:mt-4 bk:mb-2 bk:text-sm bk:first:mt-0 bk:font-semibold bk:uppercase bk:tracking-wide bk:text-neutral-600 bk:dark:text-neutral-300"
 			{...props}
 		/>
 	),
 
 	p: (props: ComponentProps<'p'>) => (
-		<p className="bk:mb-4 bk:leading-7 bk:text-gray-700 bk:dark:text-gray-300" {...props} />
+		<p className="bk:mb-4 bk:leading-7 bk:text-neutral-700 bk:dark:text-neutral-300" {...props} />
 	),
 
 	ul: (props: ComponentProps<'ul'>) => (
 		<ul
-			className="bk:mb-4 bk:ml-6 bk:list-disc bk:space-y-2 bk:text-gray-700 bk:dark:text-gray-300"
+			className="bk:mb-4 bk:ml-6 bk:list-disc bk:space-y-2 bk:text-neutral-700 bk:dark:text-neutral-300"
 			{...props}
 		/>
 	),
 
 	ol: (props: ComponentProps<'ol'>) => (
 		<ol
-			className="bk:mb-4 bk:ml-6 bk:list-decimal bk:space-y-2 bk:text-gray-700 bk:dark:text-gray-300"
+			className="bk:mb-4 bk:ml-6 bk:list-decimal bk:space-y-2 bk:text-neutral-700 bk:dark:text-neutral-300"
 			{...props}
 		/>
 	),
@@ -86,7 +86,7 @@ const defaultComponents = {
 		const isInline = !className;
 		return isInline ? (
 			<code
-				className="bk:rounded bk:bg-gray-100 bk:dark:bg-gray-800 bk:px-1.5 bk:py-0.5 bk:text-sm bk:font-mono bk:text-rose-600 bk:dark:text-rose-400"
+				className="bk:rounded bk:bg-neutral-100 bk:dark:bg-[oklch(0.269_0_0)] bk:px-1.5 bk:py-0.5 bk:text-sm bk:font-mono bk:text-rose-600 bk:dark:text-rose-400"
 				{...props}
 			>
 				{children}
@@ -113,7 +113,7 @@ const defaultComponents = {
 
 	blockquote: (props: ComponentProps<'blockquote'>) => (
 		<blockquote
-			className="bk:my-6 bk:border-l-4 bk:border-blue-500 bk:pl-4 bk:italic bk:text-gray-600 bk:dark:text-gray-400"
+			className="bk:my-6 bk:border-l-4 bk:border-blue-500 bk:pl-4 bk:italic bk:text-neutral-600 bk:dark:text-neutral-400"
 			{...props}
 		/>
 	),
@@ -126,19 +126,19 @@ const defaultComponents = {
 	),
 
 	strong: (props: ComponentProps<'strong'>) => (
-		<strong className="bk:font-semibold bk:text-gray-800 bk:dark:text-gray-200" {...props} />
+		<strong className="bk:font-semibold bk:text-neutral-800 bk:dark:text-neutral-200" {...props} />
 	),
 
 	em: (props: ComponentProps<'em'>) => (
-		<em className="bk:italic bk:text-gray-800 bk:dark:text-gray-200" {...props} />
+		<em className="bk:italic bk:text-neutral-800 bk:dark:text-neutral-200" {...props} />
 	),
 
 	del: (props: ComponentProps<'del'>) => (
-		<del className="bk:text-gray-500 bk:dark:text-gray-400" {...props} />
+		<del className="bk:text-neutral-500 bk:dark:text-neutral-400" {...props} />
 	),
 
 	hr: (props: ComponentProps<'hr'>) => (
-		<hr className="bk:my-9 bk:border-gray-200 bk:dark:border-neutral-900" {...props} />
+		<hr className="bk:my-9 bk:border-neutral-200 bk:dark:border-neutral-900" {...props} />
 	),
 
 	br: (props: ComponentProps<'br'>) => <br {...props} />,
@@ -150,7 +150,7 @@ const defaultComponents = {
 	table: (props: ComponentProps<'table'>) => (
 		<div className="bk:my-6 bk:overflow-x-auto">
 			<table
-				className="bk:w-full bk:border bk:border-gray-200 bk:dark:border-gray-700 bk:rounded-lg bk:overflow-hidden bk:text-sm"
+				className="bk:w-full bk:border bk:border-neutral-200 bk:dark:border-[oklch(1_0_0/0.1)] bk:rounded-lg bk:overflow-hidden bk:text-sm"
 				{...props}
 			/>
 		</div>
@@ -158,7 +158,7 @@ const defaultComponents = {
 
 	thead: (props: ComponentProps<'thead'>) => (
 		<thead
-			className="bk:bg-gray-50 bk:dark:bg-gray-800 bk:text-gray-700 bk:dark:text-gray-200"
+			className="bk:bg-neutral-50 bk:dark:bg-[oklch(0.269_0_0)] bk:text-neutral-700 bk:dark:text-neutral-200"
 			{...props}
 		/>
 	),
@@ -167,7 +167,7 @@ const defaultComponents = {
 
 	tr: (props: ComponentProps<'tr'>) => (
 		<tr
-			className="bk:border-b bk:last:border-b-0 bk:border-gray-200 bk:dark:border-gray-700"
+			className="bk:border-b bk:last:border-b-0 bk:border-neutral-200 bk:dark:border-[oklch(1_0_0/0.1)]"
 			{...props}
 		/>
 	),
@@ -177,7 +177,7 @@ const defaultComponents = {
 	),
 
 	td: (props: ComponentProps<'td'>) => (
-		<td className="bk:px-4 bk:py-3 bk:text-gray-700 bk:dark:text-gray-300" {...props} />
+		<td className="bk:px-4 bk:py-3 bk:text-neutral-700 bk:dark:text-neutral-300" {...props} />
 	),
 
 	input: (props: ComponentProps<'input'>) => (
@@ -208,7 +208,7 @@ export function ContentRenderer({
 						</div>
 					) : null}
 					{(showReadingTime || showDate) && (
-						<div className="bk:flex bk:items-center bk:gap-2 bk:text-sm bk:text-gray-500 bk:dark:text-gray-400 bk:whitespace-nowrap">
+						<div className="bk:flex bk:items-center bk:gap-2 bk:text-sm bk:text-neutral-500 bk:dark:text-neutral-400 bk:whitespace-nowrap">
 							{showReadingTime && <span>{metadata.readingTime}</span>}
 							{showReadingTime && showDate && <span>•</span>}
 							{showDate && (
@@ -225,7 +225,7 @@ export function ContentRenderer({
 				</div>
 			)}
 
-			<div className={`bk:prose bk:prose-slate bk:dark:prose-invert bk:max-w-none ${className}`}>
+			<div className={`bk:prose bk:prose-neutral bk:dark:prose-invert bk:max-w-none ${className}`}>
 				<ReactMarkdown
 					remarkPlugins={[remarkGfm]}
 					rehypePlugins={[rehypeRaw, rehypePrismPlus, rehypeSlugCustomId]}

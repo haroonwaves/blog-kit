@@ -34,8 +34,8 @@ export function Filter({
 }: FilterProps) {
 	// Consolidate styles to avoid JSX bloat and repetition
 	const pillBase = `bk:px-2.5 bk:py-1 bk:cursor-pointer bk:rounded-md bk:text-xs bk:font-medium bk:transition-colors ${classNames.pill ?? ''}`;
-	const pillActive = `bk:bg-gray-700 bk:dark:bg-gray-200 bk:text-white bk:dark:text-gray-800 ${classNames.activePill ?? ''}`;
-	const pillInactive = `bk:bg-gray-100 bk:dark:bg-gray-700 bk:text-gray-500 bk:dark:text-gray-300 bk:hover:bg-gray-200 bk:dark:hover:bg-gray-600 ${classNames.inactivePill ?? ''}`;
+	const pillActive = `bk:bg-neutral-800 bk:hover:bg-neutral-900 bk:dark:bg-[oklch(0.922_0_0)] bk:dark:hover:bg-[oklch(0.85_0_0)] bk:text-white bk:dark:text-[oklch(0.205_0_0)] ${classNames.activePill ?? ''}`;
+	const pillInactive = `bk:bg-neutral-100 bk:dark:bg-[oklch(0.269_0_0)] bk:text-neutral-500 bk:dark:text-neutral-300 bk:hover:bg-neutral-200 bk:dark:hover:bg-[oklch(0.32_0_0)] ${classNames.inactivePill ?? ''}`;
 
 	return (
 		<div className={`bk:flex bk:flex-col bk:gap-4 bk:mb-6 ${className}`}>
@@ -43,7 +43,7 @@ export function Filter({
 				{/* Search input */}
 				<div className="bk:relative bk:flex-1">
 					<svg
-						className="bk:absolute bk:left-3 bk:top-1/2 bk:-translate-y-1/2 bk:w-3.5 bk:h-3.5 bk:text-gray-400 bk:pointer-events-none"
+						className="bk:absolute bk:left-3 bk:top-1/2 bk:-translate-y-1/2 bk:w-3.5 bk:h-3.5 bk:text-neutral-400 bk:pointer-events-none"
 						fill="none"
 						stroke="currentColor"
 						strokeWidth={2}
@@ -61,7 +61,7 @@ export function Filter({
 						value={searchTerm}
 						onChange={(e) => setSearchTerm(e.target.value)}
 						placeholder={placeholder}
-						className={`bk:w-full bk:pl-8 bk:pr-4 bk:py-2 bk:rounded-md bk:border bk:border-gray-200 bk:dark:border-gray-700 bk:bg-white bk:dark:bg-gray-800 bk:text-sm bk:text-gray-700 bk:dark:text-gray-200 bk:placeholder-gray-400 bk:focus:outline-none bk:focus:border-gray-400 bk:dark:focus:border-gray-500 bk:transition-colors ${classNames.input ?? ''}`}
+						className={`bk:w-full bk:pl-8 bk:pr-4 bk:py-2 bk:rounded-md bk:border bk:border-neutral-200 bk:hover:border-neutral-300 bk:dark:border-[oklch(1_0_0/0.1)] bk:dark:hover:border-[oklch(1_0_0/0.15)] bk:bg-white bk:dark:bg-[oklch(0.205_0_0)] bk:text-sm bk:text-neutral-700 bk:dark:text-neutral-200 bk:placeholder-neutral-400 bk:focus:outline-none bk:focus:border-neutral-400 bk:dark:focus:border-[oklch(1_0_0/0.3)] bk:transition-colors ${classNames.input ?? ''}`}
 					/>
 				</div>
 
@@ -92,7 +92,7 @@ export function Filter({
 			{/* Content Count */}
 			{contentCount !== undefined && (
 				<p
-					className={`bk:text-[10px] bk:uppercase bk:tracking-wider bk:text-gray-400 bk:dark:text-gray-500 ${classNames.contentCount ?? ''}`}
+					className={`bk:text-[10px] bk:uppercase bk:tracking-wider bk:text-neutral-400 bk:dark:text-neutral-500 ${classNames.contentCount ?? ''}`}
 				>
 					{contentCount} {contentCount === 1 ? 'item' : 'items'} found
 				</p>

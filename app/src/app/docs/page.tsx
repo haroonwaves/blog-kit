@@ -51,8 +51,8 @@ export default function DocsPage() {
 						Welcome to Blog Kit
 					</h1>
 					<p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-						Everything you need to build a modern, markdown-based content site. Start with the basics or
-						dive deep into advanced features.
+						Everything you need to build a modern, markdown-based content site. Start with the
+						basics or dive deep into advanced features.
 					</p>
 				</div>
 			</div>

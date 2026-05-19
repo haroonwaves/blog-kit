@@ -17,6 +17,9 @@ export type { FilterProps } from './components/Filter';
 export { ContentPlaceholder } from './components/ContentPlaceholder';
 export type { ContentPlaceholderProps } from './components/ContentPlaceholder';
 
+export { ContentLayout } from './components/ContentLayout';
+export type { ContentLayoutProps } from './components/ContentLayout';
+
 // Hooks
 export { useContent } from './hooks/useContent';
 

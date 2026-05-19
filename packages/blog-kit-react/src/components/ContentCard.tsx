@@ -27,7 +27,7 @@ export function ContentCard({
 
 	return (
 		<article
-			className={`bk:rounded-lg bk:border bk:border-gray-200 bk:dark:border-gray-700 bk:hover:border-gray-300 bk:dark:hover:border-gray-600 bk:bg-white bk:dark:bg-gray-800 bk:p-6 bk:transition-colors bk:min-h-[200px] bk:flex bk:flex-col ${className}`}
+			className={`bk:rounded-lg bk:border bk:border-gray-200 bk:dark:border-[oklch(1_0_0/0.1)] bk:hover:border-gray-300 bk:dark:hover:border-[oklch(1_0_0/0.15)] bk:bg-white bk:dark:bg-[oklch(0.205_0_0)] bk:p-6 bk:transition-colors bk:min-h-[200px] bk:flex bk:flex-col ${className}`}
 		>
 			{(showCategory || showReadingTime || showDate) && (
 				<div className="bk:mb-3">
@@ -40,7 +40,7 @@ export function ContentCard({
 							</div>
 						) : null}
 						{(showReadingTime || showDate) && (
-							<div className="bk:flex bk:items-center bk:gap-2 bk:text-sm bk:text-gray-500 bk:dark:text-gray-400 bk:whitespace-nowrap">
+							<div className="bk:flex bk:items-center bk:gap-2 bk:text-sm bk:text-neutral-500 bk:dark:text-neutral-400 bk:whitespace-nowrap">
 								{showReadingTime && <span>{metadata.readingTime}</span>}
 								{showReadingTime && showDate && <span>•</span>}
 								{showDate && (
@@ -60,12 +60,12 @@ export function ContentCard({
 
 			{Link(
 				href,
-				<h2 className="bk:font-semibold bk:text-xl bk:text-gray-700 bk:dark:text-gray-100 bk:mb-2 bk:hover:underline bk:transition-colors bk:line-clamp-2">
+				<h2 className="bk:font-semibold bk:text-xl bk:text-neutral-700 bk:dark:text-neutral-100 bk:mb-2 bk:hover:underline bk:transition-colors bk:line-clamp-2">
 					{metadata.title}
 				</h2>
 			)}
 
-			<p className="bk:text-sm bk:text-gray-500 bk:dark:text-gray-300 bk:mb-2 bk:leading-6 bk:line-clamp-2">
+			<p className="bk:text-sm bk:text-neutral-500 bk:dark:text-neutral-300 bk:mb-2 bk:leading-6 bk:line-clamp-2">
 				{metadata.description}
 			</p>
 

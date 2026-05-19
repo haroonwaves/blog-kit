@@ -58,6 +58,7 @@ your-project/
 └── src/
     └── app/
         ├── blog/
+        │   ├── layout.tsx        ← Shared layout wrapper
         │   ├── page.tsx          ← Content list page
         │   └── [slug]/
         │       └── page.tsx      ← Content item page
@@ -105,7 +106,26 @@ export const contentConfig: ContentConfig = {
 };
 ```
 
-### 5. Build the Blog List Page
+### 5. Create the Shared Blog Layout
+
+Create a nested layout file in your `/blog` directory. This wraps all blog routes in the
+`ContentLayout` component to ensure consistent background colors (`bg-gray-50` / `oklch(0.205 0 0)`)
+and margins.
+
+```tsx
+// app/blog/layout.tsx
+import { ContentLayout } from '@haroonwaves/blog-kit-react';
+
+export default function BlogLayout({ children }: { children: React.ReactNode }) {
+	return (
+		<ContentLayout>
+			<div className="max-w-7xl mx-auto px-4 py-12">{children}</div>
+		</ContentLayout>
+	);
+}
+```
+
+### 6. Build the Blog List Page
 
 ```tsx
 // app/blog/page.tsx
@@ -132,7 +152,7 @@ export default function BlogPage() {
 That's it — `ContentList` renders a responsive list of cards with category badges, reading time, and
 dates. No extra configuration needed.
 
-### 6. Build the Blog Post Page
+### 7. Build the Blog Post Page
 
 ```tsx
 // app/blog/[slug]/page.tsx

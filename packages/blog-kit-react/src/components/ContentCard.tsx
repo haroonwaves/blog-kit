@@ -29,11 +29,11 @@ export function ContentCard({
 
 	return (
 		<article
-			className={`bk:rounded-lg bk:border bk:border-gray-200 bk:dark:border-[oklch(1_0_0/0.1)] bk:hover:border-gray-300 bk:dark:hover:border-[oklch(1_0_0/0.15)] bk:bg-white bk:dark:bg-[oklch(0.205_0_0)] bk:p-5 bk:sm:p-6 bk:transition-colors bk:min-h-[200px] bk:flex bk:flex-col ${className}`}
+			className={`bk:rounded-lg bk:border bk:border-gray-200 bk:dark:border-[oklch(1_0_0/0.1)] bk:hover:border-gray-300 bk:dark:hover:border-[oklch(1_0_0/0.15)] bk:bg-white bk:dark:bg-[oklch(0.205_0_0)] bk:p-4 bk:sm:p-6 bk:transition-colors bk:min-h-[200px] bk:flex bk:flex-col ${className}`}
 		>
 			{(showCategory || showReadingTime || showDate) && (
 				<div className={`bk:mb-3 ${hasVisibleOnMobile ? '' : 'bk:hidden bk:sm:block'}`}>
-					<div className="bk:flex bk:flex-wrap bk:items-center bk:gap-x-3 bk:gap-y-2 bk:justify-between">
+					<div className="bk:flex bk:flex-wrap bk:items-center bk:gap-x-0.5 bk:gap-y-2 bk:justify-between">
 						{showCategory && metadata.categories?.length ? (
 							<div className="bk:flex bk:items-center bk:gap-1.5 bk:flex-nowrap bk:overflow-hidden">
 								{metadata.categories.slice(0, 2).map((cat) => (

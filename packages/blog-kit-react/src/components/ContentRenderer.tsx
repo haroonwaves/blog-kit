@@ -196,10 +196,14 @@ export function ContentRenderer({
 }: ContentRendererProps) {
 	const mergedComponents = { ...defaultComponents, ...components };
 
+	const hasVisibleOnMobile = (showCategory && metadata.categories?.length) || showDate;
+
 	return (
 		<>
 			{(showCategory || showReadingTime || showDate) && (
-				<div className="bk:flex bk:items-center bk:gap-3 bk:mb-4">
+				<div
+					className={`bk:flex bk:flex-wrap bk:items-center bk:gap-x-3 bk:gap-y-2 bk:mb-4 ${hasVisibleOnMobile ? '' : 'bk:hidden bk:sm:flex'}`}
+				>
 					{showCategory && metadata.categories?.length ? (
 						<div className="bk:flex bk:items-center bk:gap-1.5 bk:flex-wrap">
 							{metadata.categories.map((cat) => (
@@ -208,9 +212,13 @@ export function ContentRenderer({
 						</div>
 					) : null}
 					{(showReadingTime || showDate) && (
-						<div className="bk:flex bk:items-center bk:gap-2 bk:text-sm bk:text-neutral-500 bk:dark:text-neutral-400 bk:whitespace-nowrap">
-							{showReadingTime && <span>{metadata.readingTime}</span>}
-							{showReadingTime && showDate && <span>•</span>}
+						<div
+							className={`bk:flex bk:items-center bk:gap-2 bk:text-sm bk:text-neutral-500 bk:dark:text-neutral-400 bk:whitespace-nowrap ${showDate ? '' : 'bk:hidden bk:sm:flex'}`}
+						>
+							{showReadingTime && (
+								<span className="bk:hidden bk:sm:inline">{metadata.readingTime}</span>
+							)}
+							{showReadingTime && showDate && <span className="bk:hidden bk:sm:inline">•</span>}
 							{showDate && (
 								<time dateTime={metadata.date}>
 									{new Date(metadata.date).toLocaleDateString('en-US', {

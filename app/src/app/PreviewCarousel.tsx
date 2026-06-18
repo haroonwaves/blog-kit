@@ -65,7 +65,7 @@ export function PreviewCarousel() {
 			</div>
 
 			<div className="group relative">
-				<div className="overflow-hidden rounded-2xl border border-border bg-muted/50 p-2 shadow-2xl relative">
+				<div className="overflow-hidden relative">
 					<div
 						className="flex gap-10 transition-transform duration-700 ease-in-out"
 						style={{
@@ -85,7 +85,7 @@ export function PreviewCarousel() {
 									alt={preview.alt}
 									width={1200}
 									height={675}
-									className="w-full h-auto shadow-sm m-px rounded-sm"
+									className="w-full h-auto"
 									priority={index === 0}
 								/>
 							</a>
@@ -93,7 +93,7 @@ export function PreviewCarousel() {
 					</div>
 
 					{/* Overlay Info */}
-					<div className="absolute inset-x-0 bottom-6 flex justify-center px-4 md:px-12 pointer-events-none">
+					<div className="absolute inset-x-0 bottom-8 flex justify-center px-4 md:px-12 pointer-events-none">
 						<div className="rounded-2xl border border-white/10 bg-black/80 backdrop-blur-md p-4 text-white shadow-2xl max-w-md w-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0 text-center">
 							<div className="mb-2 flex justify-center">
 								<span className="inline-flex items-center rounded-full bg-white/10 px-2.5 py-0.5 text-[10px] font-medium uppercase tracking-wider text-white/90 border border-white/5">
@@ -107,7 +107,7 @@ export function PreviewCarousel() {
 				</div>
 
 				{/* Indicators */}
-				<div className="absolute -bottom-10 left-1/2 flex -translate-x-1/2 gap-3">
+				<div className="absolute -bottom-4 left-1/2 flex -translate-x-1/2 gap-3">
 					{PREVIEWS.map((_, index) => (
 						<button
 							key={index}
